@@ -5,7 +5,7 @@ import IconButton from "@mui/material/IconButton";
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import ForumIcon  from '@mui/icons-material/Send';
 
-function YourComponent() {
+function Header() {
   return (
     <div className="header">
         <IconButton>
@@ -25,4 +25,4 @@ function YourComponent() {
   );
 }
 
-export default YourComponent;
+export default Header;
