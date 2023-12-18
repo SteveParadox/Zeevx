@@ -23,7 +23,7 @@ function Cards() {
 
   const swiped = (direction, nameToDelete) => {
     console.log("removing " + nameToDelete);
-    setLastDirection(direction);
+    //setLastDirection(direction);
 
   }
 
