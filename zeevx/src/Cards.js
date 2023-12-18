@@ -1,10 +1,40 @@
 import React from 'react';
 import "./Cards.css";
+import TinderCard from "react-tinder-card";
 
 function Cards() {
+  const [people, setPeople] = useState([
+    {
+      name: '',
+      url: '',
+
+    }
+  ]);
+
+  const outOfFrame = (direction, nameToDelete) => {
+    console.log("removing " + nameToDelete);
+    setLastDirection(direction);
+
+  }
+
+  const outOfFrame = (name) => {
+    console.log(name + " left the screen")
+  }
+
   return (
     <div className="Cards">
-      {/* Your component content goes here */}
+      <div className="Card__cardContainer">
+        {people.map((person) =>  (
+      <TinderCard className="swipe"
+                  key={person.name}
+                  preventSwipe={["up","down"]}
+                  onSwipe={(dir) => swiped[dir, person.name]}
+                  onCardLeftScreen = {() => outOfFrame(person.name)}
+                  >
+
+      </TinderCard>
+      )) }
+      </div>
     </div>
   );
 }
