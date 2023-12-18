@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Cards.css";
 import TinderCard from "react-tinder-card";
 
