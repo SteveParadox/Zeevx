@@ -21,7 +21,7 @@ function Cards() {
     }
   ]);
 
-  const outOfFrame = (direction, nameToDelete) => {
+  const swiped = (direction, nameToDelete) => {
     console.log("removing " + nameToDelete);
     setLastDirection(direction);
 
