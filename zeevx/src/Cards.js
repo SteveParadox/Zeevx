@@ -39,7 +39,7 @@ function Cards() {
       className="swipe"
       key={person.name}
       preventSwipe={["up", "down"]}
-      onSwipe={(dir) => swiped[dir, person.name]}
+      onSwipe={(dir) => swiped(dir, person.name)}
 
       onCardLeftScreen={() => outOfFrame(person.name)}
     >
