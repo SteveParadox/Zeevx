@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import "./Cards.css";
 import TinderCard from "react-tinder-card";
+import "./Cards.css";
 
 function Cards() {
   const [people, setPeople] = useState([
@@ -43,12 +43,8 @@ function Cards() {
 
       onCardLeftScreen={() => outOfFrame(person.name)}
     >
-      <div
-        style={{ backgroundImage: `url(${person.url})` }}
-        className="card"
-      >
+      
         <h3>{person.name}</h3>
-      </div>
     </TinderCard>
     
       )) }
