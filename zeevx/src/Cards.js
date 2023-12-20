@@ -21,16 +21,15 @@ function Cards() {
     }
   ]);
 
-  const swiped = (direction, nameToDelete) => {
-    console.log("removing " + nameToDelete);
-    //setLastDirection(direction);
+  const onSwipe = (direction) => {
+    console.log('You swiped: ' + direction)
+  }
+  
+  const onCardLeftScreen = (myIdentifier) => {
+    console.log(myIdentifier + ' left the screen')
+  }
 
-  };
-
-  const outOfFrame = (name) => {
-    console.log(name + " left the screen")
-  };
-
+  
   return (
     <div className="Cards">
       <div className="Card__cardContainer">
