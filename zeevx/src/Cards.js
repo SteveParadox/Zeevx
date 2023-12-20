@@ -21,17 +21,15 @@ function Cards() {
     }
   ]);
 
-
-  const swiped = (dir, nameToDelete) => {
+  const swiped = (direction, nameToDelete) => {
     console.log("removing " + nameToDelete);
-    // Handle the removal of the card from the 'people' state
-    setPeople((prevPeople) => prevPeople.filter(person => person.name !== nameToDelete));
-  };
+    //setLastDirection(direction);
 
+  };
 
   const outOfFrame = (name) => {
     console.log(name + " left the screen")
-  }
+  };
 
   return (
     <div className="Cards">
