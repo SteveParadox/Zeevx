@@ -34,7 +34,7 @@ function Cards() {
   return (
     <div className="Cards">
       <div className="Card__cardContainer">
-       {people.map((person) =>  (
+       
       <TinderCard
       className="swipe"
       key={person.name}
@@ -43,11 +43,11 @@ function Cards() {
 
       onCardLeftScreen={() => outOfFrame(person.name)}
     >
-      
-        <h3>{person.name}</h3>
+  
+  Hello, World!
     </TinderCard>
     
-      )) }
+      
       </div>
     </div>
   );
