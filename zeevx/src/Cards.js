@@ -34,20 +34,8 @@ function Cards() {
   return (
     <div className="Cards">
       <div className="Card__cardContainer">
-       
-      <TinderCard
-      className="swipe"
-      key={person.name}
-      preventSwipe={["up", "down"]}
-      onSwipe={(dir) => swiped(dir, person.name)}
+      <TinderCard onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>Hello, World!</TinderCard>
 
-      onCardLeftScreen={() => outOfFrame(person.name)}
-    >
-  
-  Hello, World!
-    </TinderCard>
-    
-      
       </div>
     </div>
   );
