@@ -12,7 +12,6 @@ function Header() {
                         <Person4Icon fontSize="large" className="header__icon" />
 
         </IconButton>
-    <img className="header__logo" src=""/> 
         <IconButton>
                     <AcUnitIcon fontSize="large" className="header__icon" />
 
