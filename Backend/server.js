@@ -16,7 +16,6 @@ app.use(Cors());
 //Db Config
 mongoose.connect(uri, {
     useNewUrlParser: true,
-    useCreateIndex: true,
     useUnifiedTopology: true,
 })
 
