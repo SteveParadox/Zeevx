@@ -1,7 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
-import Cors from "cors"
+import cors from "cors"
 import Cards from './dbCards.js'
+import corsOptions from './corsConfig';
+
 
 // App Config
 const app = express();
@@ -10,7 +12,7 @@ const uri = 'mongodb+srv://fordstphn:JOvRV8fE35skPjEp@cluster0.ronso6r.mongodb.n
 
 // Middlewares
 app.use(express.json());
-app.use(Cors());
+app.use(cors(corsOptions));
 
 
 //Db Config
