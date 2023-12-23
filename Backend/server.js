@@ -39,18 +39,15 @@ app.post('/cards', (req, res) => {
 
 });
 
-app.get('/cards', (req, res) => {
-
-    Cards.find((err, data) =>{
-        if (err) {
-            res.status(500).send(err)
-
-        } else{
-            res.status(200).send(data)
-        }
-    })
-
+app.get('/cards', async (req, res) => {
+    try {
+        const data = await Cards.find();
+        res.status(200).send(data);
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
 });
+
 // Listener
 app.listen(port,  () => console.log(`listening on localhost: ${port}`));
 
