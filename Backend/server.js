@@ -41,7 +41,7 @@ app.post('/cards', (req, res) => {
 
 app.get('/cards', async (req, res) => {
     try {
-        const data = await Cards.find().maxTimeMS(20000).exec(); // 20000 milliseconds (20 seconds)
+        const data = await Cards.find();
         res.status(200).send(data);
     } catch (err) {
         res.status(500).send(err.message);
