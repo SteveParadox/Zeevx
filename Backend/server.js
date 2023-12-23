@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors"
 import Cards from './dbCards.js'
-import corsOptions from './corsConfig';
+import corsOptions from './corsConfig.js';
 
 
 // App Config
