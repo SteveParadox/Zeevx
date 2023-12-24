@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Header from "./Header.js";
-import Cards from "./Cards.js";
-import SwipeButtons from "./swipeButtons.js";
-import Login from './Login';
+import Header from "./Home/Header.js";
+import Cards from "./Home/Cards.js";
+import SwipeButtons from "./Home/swipeButtons.js";
+import Login from './Auth/Login';
 
 function App() {
   return (

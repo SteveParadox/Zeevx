@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TinderCard from "react-tinder-card";
-import "./Cards.css";
-import axios from './axios';
+import "../Css/Cards.css";
+import axios from '../Utils/axios';
 
 
 function Cards() {
