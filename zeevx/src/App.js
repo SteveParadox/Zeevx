@@ -10,10 +10,11 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
+        
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<>
+            <Header />
             <Cards />
             <SwipeButtons />
             {/* Add more components or content as needed */}
