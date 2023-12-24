@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from "./Header.js";
 import Cards from "./Cards.js";
@@ -10,21 +10,19 @@ function App() {
   return (
     <Router>
       <div className="App">
-       
-        <Switch>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/">
-            <Header />
+        <Header />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<>
             <Cards />
             <SwipeButtons />
             {/* Add more components or content as needed */}
-          </Route>
-        </Switch>
+          </>} />
+        </Routes>
       </div>
     </Router>
   );
 }
 
 export default App;
+
