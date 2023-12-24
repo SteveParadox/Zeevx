@@ -4,6 +4,7 @@
     justify-content: space-evenly;
     z-index: 100;
     border-bottom: 1px solid #f9f9f9;
+    background-color: darkgrey;
 }
 
 
@@ -15,4 +16,5 @@
 
 .header__icon {
     padding: 20px;
+    color: lavender;
 }
