@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { auth, provider } from './Firebase.js';
-import { TextField, Button, Grid, Typography } from '@mui/material';
+import { TextField, Button, Grid, Paper, Typography } from '@mui/material';
 import { signInWithPopup } from 'firebase/auth';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -30,6 +30,8 @@ const Login = () => {
   return (
     <Grid container spacing={3} justifyContent="center" alignItems="center">
       <Grid item xs={12} md={6}>
+      <Paper elevation={3} style={{ padding: 16 }}>
+
       <Card sx={{ maxWidth: 500 }}>
 
       <CardContent>
@@ -64,6 +66,8 @@ const Login = () => {
         </Button>
         </CardActions>
         </Card>
+        </Paper>
+
 
       </Grid>
     </Grid>

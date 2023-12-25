@@ -20,12 +20,21 @@ function Upload() {
     }
   };
 
-  return (
-    <div className="upload">
-      <h2>Image Upload</h2>
-      <input type="file" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Upload</button>
-    </div>
+  <Container maxWidth="sm" className="upload">
+      <Typography variant="h4" gutterBottom>
+        Image Upload
+      </Typography>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <input type="file" onChange={handleFileChange} />
+        </Grid>
+        <Grid item xs={12}>
+          <Button variant="contained" color="primary" onClick={handleUpload}>
+            Upload
+          </Button>
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
 
