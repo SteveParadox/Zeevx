@@ -7,6 +7,8 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import GoogleIcon from '@mui/icons-material/Google';
+import "../Css/Login.css";
+
 
 
 const Login = () => {
@@ -30,11 +32,11 @@ const Login = () => {
   };
 
   return (
-    <Grid container spacing={3} justifyContent="center" alignItems="center">
+    <Grid container spacing={3} justifyContent="center" alignItems="center" className="custom-margin-top">
       <Grid item xs={12} md={6}>
       <Paper elevation={3} style={{ padding: 16 }}>
 
-      <Card sx={{ maxWidth: 500 }}>
+      <Card sx={{ maxWidth: 400 }}>
 
       <CardContent>
 
