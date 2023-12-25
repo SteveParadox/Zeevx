@@ -2,7 +2,7 @@ import { Routes, Route, BrowserRouter as Router, Navigate } from 'react-router-d
 import React from 'react';
 import Header from './Home/Header';
 import Cards from './Home/Cards';
-import SwipeButtons from './Home/SwipeButtons';
+import SwipeButtons from './Home/swipeButtons.js';
 import Login from './Auth/Login';
 import Upload from './User/Upload';
 import Profile from './User/Profile.js'

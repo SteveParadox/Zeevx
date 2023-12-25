@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useAuth } from './Auth'; // Assuming you have an Auth.js file
-import { updateProfile } from 'firebase/auth'; // Assuming you are using Firebase Authentication
+import { useAuth } from '../Auth/Auth.js'; 
+import { updateProfile } from 'firebase/auth'; 
 
 const Profile = () => {
   const user = useAuth();
