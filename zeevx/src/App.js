@@ -10,11 +10,12 @@ import Profile from './User/Profile.js'
 
 const App = () => {
   const isLoginPage = window.location.pathname === '/login';
+  const isLandingPage  = window.location.pathname === '/';
 
   return (
     <Router>
       <div className="App">
-        {!isLoginPage && !<LandingPage /> &&  <Header />} {/* Conditionally render Header */}
+        {!isLoginPage && !isLandingPage && <Header />} 
         
         <Routes>
           <Route path="/login" element={<Login />} />
