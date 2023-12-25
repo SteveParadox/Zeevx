@@ -7,6 +7,8 @@ import SwipeButtons from './Home/swipeButtons.js';
 import Login from './Auth/Login';
 import Upload from './User/Upload';
 import Profile from './User/Profile.js'
+import Profile from './Home/test.js';
+
 
 const App = () => {
   const isLoginPage = window.location.pathname === '/login';
@@ -21,12 +23,14 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<LandingPage />} />
           <Route path="/upload" element={<Upload />} />
+
           <Route path="/home" element={<>
             <Cards />
             <SwipeButtons />
             {/* Add more components or content as needed */}
           </>} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/test" element={<Profile />} />
 
           {/* Add more routes as needed */}
         </Routes>
