@@ -14,7 +14,7 @@ const App = () => {
   return (
     <Router>
       <div className="App">
-        {!isLoginPage && <Header />} {/* Conditionally render Header */}
+        {!isLoginPage && !<LandingPage /> &&  <Header />} {/* Conditionally render Header */}
         
         <Routes>
           <Route path="/login" element={<Login />} />
