@@ -2,6 +2,7 @@ import { Routes, Route, BrowserRouter as Router, Navigate } from 'react-router-d
 import React from 'react';
 import Header from './Home/Header';
 import Cards from './Home/Cards';
+import LandingPage from './Home/LandingPage.js';
 import SwipeButtons from './Home/swipeButtons.js';
 import Login from './Auth/Login';
 import Upload from './User/Upload';
@@ -17,8 +18,9 @@ const App = () => {
         
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/upload" element={<Upload />} />
-          <Route path="/" element={<>
+          <Route path="/home" element={<>
             <Cards />
             <SwipeButtons />
             {/* Add more components or content as needed */}
