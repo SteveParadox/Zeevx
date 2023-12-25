@@ -30,7 +30,7 @@ const Login = () => {
   return (
     <Grid container spacing={3} justifyContent="center" alignItems="center">
       <Grid item xs={12} md={6}>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 500 }}>
 
       <CardContent>
 
