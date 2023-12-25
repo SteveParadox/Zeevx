@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { auth, provider } from './Firebase.js';
 import { TextField, Button, Grid, Typography } from '@mui/material';
 import { signInWithPopup } from 'firebase/auth';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -26,6 +31,10 @@ const Login = () => {
   return (
     <Grid container spacing={3} justifyContent="center" alignItems="center">
       <Grid item xs={12} md={6}>
+      <Card sx={{ maxWidth: 345 }}>
+
+      <CardContent>
+
         <Typography variant="h4" gutterBottom>
           Login
         </Typography>
@@ -46,12 +55,17 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+              </CardContent>
+              <CardActions>
         <Button variant="contained" color="primary" onClick={handleLogin}>
           Login
         </Button>
         <Button variant="contained" color="secondary" onClick={handleGoogleLogin}>
           Login with Google
         </Button>
+        </CardActions>
+        </Card>
+
       </Grid>
     </Grid>
   );
