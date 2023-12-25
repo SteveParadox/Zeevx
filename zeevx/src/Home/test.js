@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   // Add more styles as needed
 }));
 
-function Profile() {
+function Test() {
   const classes = useStyles();
 
   return (
@@ -51,4 +51,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Test;

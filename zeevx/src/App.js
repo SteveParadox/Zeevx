@@ -7,7 +7,7 @@ import SwipeButtons from './Home/swipeButtons.js';
 import Login from './Auth/Login';
 import Upload from './User/Upload';
 import Profile from './User/Profile.js'
-import Profile from './Home/test.js';
+import Test from './Home/test.js';
 
 
 const App = () => {
@@ -30,7 +30,7 @@ const App = () => {
             {/* Add more components or content as needed */}
           </>} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/test" element={<Profile />} />
+          <Route path="/test" element={<Test />} />
 
           {/* Add more routes as needed */}
         </Routes>
