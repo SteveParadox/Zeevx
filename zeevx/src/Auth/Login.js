@@ -23,24 +23,36 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      {/* Your existing login form */}
-      <label>
-        Username:
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-      </label>
-      <br />
-      <label>
-        Password:
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      </label>
-      <br />
-      <button onClick={handleLogin}>Login</button>
-
-      {/* Google login button */}
-      <button onClick={handleGoogleLogin}>Login with Google</button>
-    </div>
+    <Grid container spacing={3} justifyContent="center" alignItems="center">
+      <Grid item xs={12} md={6}>
+        <Typography variant="h4" gutterBottom>
+          Login
+        </Typography>
+        <TextField
+          label="Username"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <TextField
+          label="Password"
+          type="password"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Button variant="contained" color="primary" onClick={handleLogin}>
+          Login
+        </Button>
+        <Button variant="contained" color="secondary" onClick={handleGoogleLogin}>
+          Login with Google
+        </Button>
+      </Grid>
+    </Grid>
   );
 };
 
