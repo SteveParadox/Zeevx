@@ -20,7 +20,8 @@ function Upload() {
     }
   };
 
-  <Container maxWidth="sm" className="upload">
+  return (
+    <Container maxWidth="sm" className="upload">
       <Typography variant="h4" gutterBottom>
         Image Upload
       </Typography>
