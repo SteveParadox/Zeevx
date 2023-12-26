@@ -1,26 +1,9 @@
 import React from 'react';
 import { AppBar, Avatar, Typography, Paper, Grid, Button, Tabs, Tab } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 
-
-const useStyles = makeStyles((theme) => ({
-  profileHeader: {
-    // Custom styles
-  },
-  avatar: {
-    // Custom styles
-  },
-  statItem: {
-    // Custom styles
-  },
-  actionButton: {
-    // Custom styles
-  },
-  // Add more styles as needed
-}));
 
 function Test() {
-  const classes = useStyles();
+  const classes = '';
 
   return (
     <div>
