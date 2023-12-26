@@ -3,7 +3,15 @@ import React from 'react';
 import { Container, Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import "../Css/LandingPage.css";
-
+import close from "./Img/close.svg";
+// import dots from "./Img/dots.svg";
+import holdingPhone from "./Img/holding-phone.jpg";
+import illustration from "./Img/illustration.svg";
+import person1 from "./Img/person-1.jfif";
+import menu from "./Img/menu.svg";
+import person2 from "./Img/person-2.jfif";
+import person3 from "./Img/person-3.jpg";
+import video from "./Img/video.svg";
 
 const LandingPage = () => {
   return (
