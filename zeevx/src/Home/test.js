@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppBar, Avatar, Typography, Paper, Grid, Button, Tabs, Tab } from '@mui/material';
-import { makeStyles } from '@mui/system';
+import { makeStyles } from '@mui/material/styles';
 
 
 const useStyles = makeStyles((theme) => ({
