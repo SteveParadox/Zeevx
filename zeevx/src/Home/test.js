@@ -1,6 +1,7 @@
 import React from 'react';
-import { AppBar, Avatar, Typography, Paper, Grid, Button, Tabs, Tab } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { AppBar, Avatar, Typography, Paper, Grid, Button, Tabs, Tab } from '@mui/material';
+import { makeStyles } from '@mui/system';
+
 
 const useStyles = makeStyles((theme) => ({
   profileHeader: {
