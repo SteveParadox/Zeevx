@@ -14,6 +14,8 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+
 
 
 function Copyright() {
@@ -66,12 +68,23 @@ function Upload() {
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
+  const VisuallyHiddenInput = styled('input')({
+    clip: 'rect(0 0 0 0)',
+    clipPath: 'inset(50%)',
+    height: 1,
+    overflow: 'hidden',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    whiteSpace: 'nowrap',
+    width: 1,
+  });
 
   return (
     <>
     <div>
       <Button variant="contained" color="primary" onClick={handleButtonClick}>
-        Open Upload Popup
+        Upload 
       </Button>
       <Popover
         id={id}
@@ -96,9 +109,10 @@ function Upload() {
               <input type="file" onChange={handleFileChange} />
             </Grid>
             <Grid item xs={12}>
-              <Button variant="contained" color="primary" onClick={handleUpload}>
-                Upload
-              </Button>
+            <Button component="label" variant="contained" startIcon={<CloudUploadIcon />} onClick={handleUpload}>
+          Upload Image
+      <VisuallyHiddenInput type="file" />
+    </Button>
             </Grid>
           </Grid>
         </Container>
