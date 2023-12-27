@@ -167,6 +167,7 @@ function Upload() {
       </Box>
       {/* End footer */}
     </ThemeProvider>
+    </>
   );
 }
 
