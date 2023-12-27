@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "../Css/Upload.css";
 import { Container, Button, Grid, Typography } from '@mui/material';
-
+import Popover from '@mui/material/Popover';
 import AppBar from '@mui/material/AppBar';
 import CameraIcon from '@mui/icons-material/PhotoCamera';
 import Card from '@mui/material/Card';
@@ -14,6 +14,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 
 function Copyright() {
   return (
@@ -154,7 +155,7 @@ function Upload() {
                     <Typography gutterBottom variant="h5" component="h2">
                       Heading
                     </Typography>
-                    <Typography>
+                    <Typography>  
                       This is a media card. You can use this section to describe the
                       content.
                     </Typography>
