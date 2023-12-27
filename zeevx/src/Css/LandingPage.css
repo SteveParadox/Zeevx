@@ -134,8 +134,7 @@ section {
   left: -2em;
   width: 20px;
   height: 20px;
-  background: url("./Img/bullet.svg");
-  background-size: contain;
+    background-size: contain;
 }
 
 .features-section img {
@@ -408,7 +407,6 @@ nav li a:hover {
     position: absolute;
     width: 200px;
     height: 20em;
-    background: url("./Img/dots.svg") no-repeat;
     left: 4.5;
     top: 2em;
   }
