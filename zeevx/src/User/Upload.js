@@ -68,8 +68,7 @@ function Upload() {
         </Grid>
       </Grid>
     </Container>
-    {/*____________________*/}
-
+    
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
       <AppBar position="relative">
