@@ -84,9 +84,6 @@ function Upload() {
   return (
     <>
     <div>
-      <Button variant="contained" color="primary" onClick={handleButtonClick}>
-        Upload 
-      </Button>
       <Popover
         id={id}
         open={open}
