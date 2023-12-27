@@ -94,16 +94,15 @@ function Upload() {
         onClose={handlePopoverClose}
         anchorOrigin={{
           vertical: 'bottom',
-          horizontal: 'left',
+          horizontal: 'center',
         }}
         transformOrigin={{
           vertical: 'top',
-          horizontal: 'left',
+          horizontal: 'center',
         }}
       >
         <Container maxWidth="sm" className="upload" style={{ padding: '16px' }}>
           <Typography variant="h4" gutterBottom>
-            Image Upload
           </Typography>
           <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -144,7 +143,9 @@ function Upload() {
               the creator, etc. Make it short and sweet, but not too short so folks
               don&apos;t simply skip over it entirely.
             </Typography>
-          
+            <Button variant="contained" color="primary" onClick={handleButtonClick}>
+            Upload 
+      </Button>
           </Container>
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">
