@@ -52,23 +52,57 @@ function Upload() {
     }
   };
 
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleButtonClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
+
   return (
     <>
-    <Container maxWidth="sm" className="upload">
-      <Typography variant="h4" gutterBottom>
-        Image Upload
-      </Typography>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <input type="file" onChange={handleFileChange} />
-        </Grid>
-        <Grid item xs={12}>
-          <Button variant="contained" color="primary" onClick={handleUpload}>
-            Upload
-          </Button>
-        </Grid>
-      </Grid>
-    </Container>
+    <div>
+      <Button variant="contained" color="primary" onClick={handleButtonClick}>
+        Open Upload Popup
+      </Button>
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handlePopoverClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+      >
+        <Container maxWidth="sm" className="upload" style={{ padding: '16px' }}>
+          <Typography variant="h4" gutterBottom>
+            Image Upload
+          </Typography>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <input type="file" onChange={handleFileChange} />
+            </Grid>
+            <Grid item xs={12}>
+              <Button variant="contained" color="primary" onClick={handleUpload}>
+                Upload
+              </Button>
+            </Grid>
+          </Grid>
+        </Container>
+      </Popover>
+    </div>
 
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -128,6 +162,8 @@ function Upload() {
                   <CardActions>
                     <Button size="small">View</Button>
                     <Button size="small">Edit</Button>
+                    <Button variant="outlined" color="error" size="small">Delete</Button>
+
                   </CardActions>
                 </Card>
               </Grid>
