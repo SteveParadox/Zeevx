@@ -43,7 +43,7 @@ const LandingPage = () => {
               <a href="#">Contact</a>
             </li>
             <li class="go-premium-cta">
-              <a href="#">Go Premium</a>
+              <a href="/login">Login</a>
             </li>
           </ul>
         </nav>
