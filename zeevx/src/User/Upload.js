@@ -53,6 +53,7 @@ function Upload() {
   };
 
   return (
+    <>
     <Container maxWidth="sm" className="upload">
       <Typography variant="h4" gutterBottom>
         Image Upload
@@ -68,7 +69,7 @@ function Upload() {
         </Grid>
       </Grid>
     </Container>
-    
+
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
       <AppBar position="relative">
