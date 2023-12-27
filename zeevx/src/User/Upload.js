@@ -16,6 +16,8 @@ import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/material/styles';
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
 
 
 
@@ -141,7 +143,9 @@ function Upload() {
               don&apos;t simply skip over it entirely.
             </Typography>
             <Button variant="contained" color="primary" onClick={handleButtonClick}>
-            Upload 
+            <Fab color="secondary" aria-label="add">
+        <AddIcon />
+      </Fab> 
       </Button>
           </Container>
         </Box>
