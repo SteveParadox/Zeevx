@@ -3,15 +3,6 @@ import React from 'react';
 import { Container, Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import "../Css/LandingPage.css";
-import close from "../Img/close.svg";
-// import dots from "./Img/dots.svg";
-import holdingPhone from "../Img/holding-phone.jpg";
-import illustration from "../Img/illustration.svg";
-import person1 from "../Img/person-1.jfif";
-import menu from "../Img/menu.svg";
-import person2 from "../Img/person-2.jfif";
-import person3 from "../Img/person-3.jpg";
-import video from "../Img/video.svg";
 
 const LandingPage = () => {
   return (
@@ -25,14 +16,14 @@ const LandingPage = () => {
         <img
           id="mobile-cta"
           class="mobile-menu"
-          src={menu}
+          src=''
           alt="navigation"
         />
         <nav>
           <img
             id="mobile-exit"
             class="mobile-menu-exit"
-            src={close}
+            src=''
             alt="close navigation"
           />
           <ul class="primary-nav">
@@ -71,14 +62,11 @@ const LandingPage = () => {
             <a href="#" class="primery-cta">
               Try for free
             </a>
-            <a href="#" class="watch-video-cta">
-              <img src={video} alt="Video Clip" />
-              Watch a video
-            </a>
+         
           </div>
         </div>
 
-        <img src={illustration} alt="Illustration" class="hero-img" />
+        <img src='' alt="Illustration" class="hero-img" />
       </div>
     </section>
     {/* <!--SECTION HERO BLOG END--> */}
@@ -95,7 +83,7 @@ const LandingPage = () => {
           <li>other awesome features</li>
         </ul>
       </div>
-      <img src={holdingPhone} alt="phone" />
+      <img src='' alt="phone" />
     </section>
     {/* <!--SECTION FEATURES BLOG END--> */}
 
@@ -105,7 +93,7 @@ const LandingPage = () => {
         <ul>
           {/* <!--PERSON 1--> */}
           <li>
-            <img src={person1} alt="Person 1" />
+            <img src='' alt="Person 1" />
             <blockquote>
               "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
               diam nonumy eirmod tempor invidunt ut labore et dolore"
@@ -115,7 +103,7 @@ const LandingPage = () => {
 
           {/* <!--PERSON 2--> */}
           <li>
-            <img src={person2} alt="Person 2" />
+            <img src='' alt="Person 2" />
             <blockquote>
               "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
               diam nonumy eirmod tempor invidunt ut labore et dolore"
@@ -125,7 +113,7 @@ const LandingPage = () => {
 
           {/* <!--PERSON 3--> */}
           <li>
-            <img src={person3} alt="Person 3" />
+            <img src='' alt="Person 3" />
             <blockquote>
               "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
               diam nonumy eirmod tempor invidunt ut labore et dolore"
