@@ -142,11 +142,9 @@ function Upload() {
               the creator, etc. Make it short and sweet, but not too short so folks
               don&apos;t simply skip over it entirely.
             </Typography>
-            <Button variant="contained" color="primary" onClick={handleButtonClick}>
-            <Fab color="secondary" aria-label="add">
+            <Fab color="secondary" aria-label="add" onClick={handleButtonClick}>
         <AddIcon />
       </Fab> 
-      </Button>
           </Container>
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">
