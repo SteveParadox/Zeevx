@@ -165,13 +165,13 @@ section {
   border-radius: 1em;
 }
 
-.test-monials {
+.test-monials-section {
   position: relative;
   height: 200px; /* Adjust the height as needed */
   background-color: #3498db; /* Set your desired background color */
 }
 
-.test-monials::before {
+.test-monials-section::before {
   content: "";
   position: absolute;
   top: 0;
