@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { auth, provider } from './Firebase.js';
+import MicrosoftLogin from './MicrosoftLogin';
 import { TextField, Button, Grid, Paper, Typography } from '@mui/material';
 import { signInWithPopup } from 'firebase/auth';
 import Card from '@mui/material/Card';
@@ -56,6 +57,10 @@ const Login = () => {
     }
   };
 
+  const handleMicrosoftLogin = (loginResponse) => {
+    // Handle the Microsoft login response, e.g., send to server, update state, etc.
+    console.log('Microsoft login response:', loginResponse);
+  };
 
 
   return (
@@ -124,6 +129,7 @@ const Login = () => {
         >
           Login with Google
         </Button>
+        <MicrosoftLogin onMicrosoftLogin={handleMicrosoftLogin} />
         <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
