@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import bcrypt from 'bcrypt';
+// import bcrypt from 'bcrypt';
 
 
 const userSchema = new mongoose.Schema({
@@ -20,7 +20,8 @@ const userSchema = new mongoose.Schema({
     // Add more fields as needed
   });
 
-// Hash the password before saving it to the database
+
+/*  // Hash the password before saving it to the database
 userSchema.pre('save', async function (next) {
   const user = this;
   if (!user.isModified('password')) return next();
@@ -42,6 +43,8 @@ userSchema.methods.comparePassword = async function (candidatePassword) {
     throw error;
   }
 };
+*/
+
 
 
 export default mongoose.model('User', userSchema);
