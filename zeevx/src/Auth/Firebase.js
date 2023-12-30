@@ -12,9 +12,9 @@ const firebaseConfig = {
   measurementId: "G-HNZRHSLPTX"
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const auth = getAuth(firebaseApp);
+const App = initializeApp(firebaseConfig);
+const analytics = getAnalytics(App);
+const auth = getAuth(App);
 const provider = new GoogleAuthProvider();
 
 export { auth, provider };
