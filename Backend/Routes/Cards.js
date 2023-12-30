@@ -18,7 +18,7 @@ router.post('/cards', (req, res) => {
 
 router.get('/cards', async (req, res) => {
     try {
-        const data = await Cards.find();
+        const data = await dbCard.find();
         res.status(200).send(data);
     } catch (err) {
         res.status(500).send(err.message);

@@ -29,8 +29,8 @@ send(
 "   Hello World"
 ));
 
-app.use('/google-login', googleLoginRouter);
-app.use('/cards', CardRouter);
+app.use('/', googleLoginRouter);
+app.use('/', CardRouter);
 
 
 // Listener
