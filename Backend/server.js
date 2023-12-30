@@ -3,9 +3,8 @@ import mongoose from "mongoose";
 import cors from "cors"
 import corsOptions from './corsConfig.js';
 
-const googleLoginRouter = require('./Routes/Login.js'); 
-const CardRouter = require('./Routes/Cards.js'); 
-
+import googleLoginRouter from './Routes/Login.js';
+import CardRouter from './Routes/Cards.js';
 
 
 // App Config
