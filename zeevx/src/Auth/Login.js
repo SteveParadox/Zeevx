@@ -56,7 +56,7 @@ const Login = () => {
       const user = result.user;
       console.log('Logged in with Google:', user);
   
-      const response = await fetch('/google-login', {
+      const response = await fetch('http://localhost:8001/google-login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
