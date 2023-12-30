@@ -3,6 +3,9 @@ import { auth, provider } from './Firebase.js';
 import MicrosoftLogin from './MicrosoftLogin';
 import { TextField, Button, Grid, Paper, Typography } from '@mui/material';
 import { signInWithPopup } from 'firebase/auth';
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
+
+
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -24,8 +27,8 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="/">
+        ZeeVX
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -46,16 +49,34 @@ const Login = () => {
     // You can use state values (username and password) for authentication
   };
 
+
   const handleGoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       console.log('Logged in with Google:', user);
-      // Add your logic after successful Google login
+  
+      const response = await fetch('/google-login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          displayName: user.displayName,
+          email: user.email,
+        }),
+      });
+  
+      const data = await response.json();
+      console.log('Backend response:', data);
+  
+      // Add your logic after successful backend response
     } catch (error) {
       console.error('Error signing in with Google:', error.message);
     }
   };
+  
+
 
   const handleMicrosoftLogin = (loginResponse) => {
     // Handle the Microsoft login response, e.g., send to server, update state, etc.
