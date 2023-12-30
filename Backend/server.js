@@ -1,8 +1,11 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors"
-import Cards from './dbCards.js'
 import corsOptions from './corsConfig.js';
+
+const googleLoginRouter = require('./Routes/Login.js'); 
+const CardRouter = require('./Routes/Cards.js'); 
+
 
 
 // App Config
@@ -27,28 +30,9 @@ send(
 "   Hello World"
 ));
 
-app.post('/cards', (req, res) => {
-    const dbCard = req.body;
+app.use('/google-login', googleLoginRouter);
+app.use('/cards', CardRouter);
 
-    Cards.create(dbCard, (err, data) =>{
-        if (err) {
-            res.status(500).send(err)
-
-        } else{
-            res.status(201).send(data)
-        }
-    })
-
-});
-
-app.get('/cards', async (req, res) => {
-    try {
-        const data = await Cards.find();
-        res.status(200).send(data);
-    } catch (err) {
-        res.status(500).send(err.message);
-    }
-});
 
 // Listener
 app.listen(port,  () => console.log(`listening on localhost: ${port}`));

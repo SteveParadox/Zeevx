@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/user'); // Adjust the path based on your project structure
+const User = require('../DB/User.js'); 
 
 router.post('/google-login', async (req, res) => {
   try {
