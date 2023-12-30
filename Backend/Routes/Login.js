@@ -1,6 +1,7 @@
 import express from "express";
 const router = express.Router();
-const User = require('../DB/User.js'); 
+import User from '../DB/User.js';
+
 
 router.post('/google-login', async (req, res) => {
   try {
