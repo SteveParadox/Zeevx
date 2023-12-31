@@ -22,8 +22,6 @@ const App = () => {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<LandingPage />} />
-          <Route path="/upload" element={<Upload />} />
-
           <Route path="/home" element={<>
             <Cards />
             <SwipeButtons />
@@ -31,6 +29,7 @@ const App = () => {
           </>} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/test" element={<Test />} />
+          <Route path="/upload" element={<Upload />} />
 
           {/* Add more routes as needed */}
         </Routes>
