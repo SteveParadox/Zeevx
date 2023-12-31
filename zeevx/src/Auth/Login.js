@@ -79,7 +79,6 @@ const Login = () => {
       console.error('Error signing in with Google:', error.message);
     }
   };
-  
 
 
   const handleMicrosoftLogin = (loginResponse) => {

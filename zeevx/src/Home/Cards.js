@@ -10,11 +10,6 @@ function Cards() {
   const [people, setPeople] = useState([]);
   const user = useAuth();
 
-  
-  if (!user) {
-    return <div>Please log in to view your profile.</div>;
-  }
-
   useEffect(() => {
     async function fetchData() {
       const req = await axios.get('/cards');
@@ -38,6 +33,10 @@ function Cards() {
   const outOfFrame = (name) => {
     console.log(name + " left the screen")
   };
+
+  if (!user) {
+    return <div>Please log in to view your profile.</div>;
+  }
 
   return (
     <div className="Cards">
