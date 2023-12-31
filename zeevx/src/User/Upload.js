@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import "../Css/Upload.css";
+import { useAuth } from '../Auth/Auth.js'; 
+
 import { Container, Button, Grid, Typography } from '@mui/material';
 import Popover from '@mui/material/Popover';
 import AppBar from '@mui/material/AppBar';
@@ -40,6 +42,13 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const defaultTheme = createTheme();
 
 function Upload() {
+  const user = useAuth();
+
+  
+  if (!user) {
+    return <div>Please log in to view your profile.</div>;
+  }
+  
   const [selectedFile, setSelectedFile] = useState(null);
 
   const handleFileChange = (event) => {

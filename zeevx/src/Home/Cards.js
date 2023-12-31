@@ -2,10 +2,18 @@ import React, { useState, useEffect } from 'react';
 import TinderCard from "react-tinder-card";
 import "../Css/Cards.css";
 import axios from '../Utils/axios';
+import { useAuth } from '../Auth/Auth.js'; 
 
 
 function Cards() {
+
   const [people, setPeople] = useState([]);
+  const user = useAuth();
+
+  
+  if (!user) {
+    return <div>Please log in to view your profile.</div>;
+  }
 
   useEffect(() => {
     async function fetchData() {
