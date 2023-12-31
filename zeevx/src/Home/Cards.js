@@ -2,11 +2,15 @@ import React, { useState, useEffect } from 'react';
 import TinderCard from 'react-tinder-card';
 import '../Css/Cards.css';
 import axios from '../Utils/axios';
+<<<<<<< HEAD
+// import { useAuth } from '../Auth/Auth.js'; 
+=======
 import { useAuth } from '../Auth/Auth.js';
+>>>>>>> a93e2bc272e1a39a5c684032e5a9dd6f1b3ad76f
 
 function Cards() {
   const [people, setPeople] = useState([]);
-  const user = useAuth();
+  // const user = useAuth();
 
   useEffect(() => {
     async function fetchData() {
@@ -30,9 +34,11 @@ function Cards() {
     console.log(name + ' left the screen');
   };
 
-  if (!user) {
+  
+  /* if (!user) {
     return <div>Please log in to view your profile.</div>;
   }
+  */
 
   return (
     <div className="Cards">
