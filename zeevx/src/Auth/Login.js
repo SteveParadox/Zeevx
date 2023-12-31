@@ -5,7 +5,7 @@ import { TextField, Button, Grid, Paper, Typography } from '@mui/material';
 import { signInWithPopup } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 import Card from '@mui/material/Card';
@@ -45,7 +45,7 @@ const defaultTheme = createTheme();
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate();
 
 
   const handleLogin = () => {
@@ -74,7 +74,7 @@ const Login = () => {
       const data = await response.json();
       console.log('Backend response:', data);
   
-      history.push('/home'); 
+      navigate('/home');
     } catch (error) {
       console.error('Error signing in with Google:', error.message);
     }
