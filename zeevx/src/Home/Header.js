@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import "../Css/Header.css";
 import Person4Icon from '@mui/icons-material/Person4';
 import IconButton from "@mui/material/IconButton";
@@ -8,14 +10,19 @@ import ForumIcon  from '@mui/icons-material/Send';
 function Header() {
   return (
     <div className="header">
-        <IconButton>
-                        <Person4Icon fontSize="large" className="header__icon" />
+    <Link to="/profile">
+      <IconButton>
+        <Person4Icon fontSize="large" className="header__icon" />
+      </IconButton>
+    </Link>
+    <Link to="/upload">
 
-        </IconButton>
         <IconButton>
                     <AcUnitIcon fontSize="large" className="header__icon" />
 
-            </IconButton>    
+            </IconButton>  
+            </Link>
+
     <IconButton>
             <ForumIcon  fontSize="large" className="header__icon" />
 
