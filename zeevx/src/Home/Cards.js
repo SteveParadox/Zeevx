@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 import TinderCard from "react-tinder-card";
-// import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import "../Css/Cards.css";
 import axios from '../Utils/axios';
 import { useAuth } from '../Auth/Auth.js';
-import  { redirect } from 'react-router-dom'
-
 
 function Cards() {
   const [people, setPeople] = useState([]);
+  const [redirectLogin, setRedirectLogin] = useState(false);
   const user = useAuth();
- // const navigate = useNavigate(); 
 
   useEffect(() => {
     if (!user) {
-      return <redirect to='/login'  />
+      // Set the state to trigger redirection
+      setRedirectLogin(true);
     } else {
       async function fetchData() {
         const req = await axios.get('/cards');
@@ -32,6 +31,11 @@ function Cards() {
   const outOfFrame = (name) => {
     console.log(name + " left the screen");
   };
+
+  // Render the Redirect component if redirectLogin is true
+  if (redirectLogin) {
+    return <Redirect to='/login' />;
+  }
 
   return (
     <div className="Cards">
