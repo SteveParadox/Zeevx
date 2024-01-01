@@ -5,12 +5,15 @@ import corsOptions from './corsConfig.js';
 
 import googleLoginRouter from './Routes/Login.js';
 import CardRouter from './Routes/Cards.js';
+import UploadRouter from './Routes/dataUpload.js';
+
 
 
 // App Config
 const app = express();
 const port = process.env.PORT || 8001
 const uri = 'mongodb+srv://fordstphn:JOvRV8fE35skPjEp@cluster0.ronso6r.mongodb.net/?retryWrites=true&w=majority';
+
 
 // Middlewares
 app.use(express.json());
@@ -23,6 +26,7 @@ mongoose.connect(uri, {
     useUnifiedTopology: true,
 })
 
+
 //Api Endpoint
 app.get('/', (req, res) => res.status(200).
 send(
@@ -31,6 +35,8 @@ send(
 
 app.use('/', googleLoginRouter);
 app.use('/', CardRouter);
+app.use('/', UploadRouter);
+
 
 // Listener
 app.listen(port,  () => console.log(`listening on localhost: ${port}`));
