@@ -32,7 +32,6 @@ send(
 app.use('/', googleLoginRouter);
 app.use('/', CardRouter);
 
-
 // Listener
 app.listen(port,  () => console.log(`listening on localhost: ${port}`));
 
