@@ -4,17 +4,17 @@ import TinderCard from "react-tinder-card";
 import "../Css/Cards.css";
 import axios from '../Utils/axios';
 import { useAuth } from '../Auth/Auth.js';
-import  { Redirect } from 'react-router-dom'
+import  { redirect } from 'react-router-dom'
 
 
 function Cards() {
   const [people, setPeople] = useState([]);
   const user = useAuth();
  // const navigate = useNavigate(); 
- 
+
   useEffect(() => {
     if (!user) {
-      return <Redirect to='/login'  />
+      return <redirect to='/login'  />
     } else {
       async function fetchData() {
         const req = await axios.get('/cards');
@@ -23,7 +23,7 @@ function Cards() {
 
       fetchData();
     }
-  }, [user, navigate]);
+  }, [user]);
 
   const swiped = (direction, nameToDelete) => {
     console.log("removing " + nameToDelete);
