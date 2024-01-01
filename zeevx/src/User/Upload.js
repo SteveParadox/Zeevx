@@ -44,6 +44,8 @@ const defaultTheme = createTheme();
 function Upload() {
   const user = useAuth();
   const navigate = useNavigate();
+  const [selectedFile, setSelectedFile] = useState(null);
+
 
   if (!user) {
 
@@ -51,7 +53,6 @@ function Upload() {
     return null; 
   }
 
-  const [selectedFile, setSelectedFile] = useState(null);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
