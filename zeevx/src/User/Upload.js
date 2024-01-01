@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "../Css/Upload.css";
-// import { useAuth } from '../Auth/Auth.js'; 
+import { useAuth } from '../Auth/Auth.js'; 
+import { useNavigate } from 'react-router-dom';
 
 import { Container, Button, Grid, Typography } from '@mui/material';
 import Popover from '@mui/material/Popover';
@@ -38,17 +39,17 @@ function Copyright() {
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-// TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 function Upload() {
-  // const user = useAuth();
+  const user = useAuth();
+  const navigate = useNavigate();
 
-  
- /* if (!user) {
-    return <div>Please log in to view your profile.</div>;
+  if (!user) {
+
+    navigate('/login');
+    return null; 
   }
-  */
 
   const [selectedFile, setSelectedFile] = useState(null);
 
