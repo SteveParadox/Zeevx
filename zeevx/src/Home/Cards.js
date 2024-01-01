@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import TinderCard from "react-tinder-card";
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+// import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import "../Css/Cards.css";
 import axios from '../Utils/axios';
 import { useAuth } from '../Auth/Auth.js';
+import  { Redirect } from 'react-router-dom'
+
 
 function Cards() {
   const [people, setPeople] = useState([]);
   const user = useAuth();
-  const navigate = useNavigate(); // Initialize useNavigate
-
+ // const navigate = useNavigate(); 
+ 
   useEffect(() => {
     if (!user) {
-      navigate('/login'); 
+      return <Redirect to='/login'  />
     } else {
       async function fetchData() {
         const req = await axios.get('/cards');
