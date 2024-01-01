@@ -46,6 +46,8 @@ function Upload() {
   const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState(null);
 
+  const [anchorEl, setAnchorEl] = useState(null);
+
 
   if (!user) {
 
@@ -70,7 +72,6 @@ function Upload() {
     }
   };
 
-  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleButtonClick = (event) => {
     setAnchorEl(event.currentTarget);
