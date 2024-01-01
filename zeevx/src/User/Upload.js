@@ -37,7 +37,6 @@ function Copyright() {
   );
 }
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const defaultTheme = createTheme();
 
@@ -96,107 +95,128 @@ function Upload() {
     width: 1,
   });
 
+  useEffect(() => {
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('/upload'); // Replace with your actual backend route
+        setData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
-    <div>
-      <Popover
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handlePopoverClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'center',
-        }}
-      >
-        <Container maxWidth="sm" className="upload" style={{ padding: '16px' }}>
-          <Typography variant="h4" gutterBottom>
-          </Typography>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-            <Button component="label" variant="contained" onChange={handleFileChange} startIcon={<CloudUploadIcon />} onClick={handleUpload}>
-          Upload Image
-      <VisuallyHiddenInput type="file" />
-    </Button>
-            </Grid>
-          </Grid>
-        </Container>
-      </Popover>
-    </div>
-
-    <ThemeProvider theme={defaultTheme}>
-      <CssBaseline />
-      
-      <main>
-        {/* Hero unit */}
-        <Box
-          sx={{
-            bgcolor: 'background.paper',
-            pt: 8,
-            pb: 6,
+      <div>
+        <Popover
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handlePopoverClose}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'center',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'center',
           }}
         >
-          <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="text.primary"
-              gutterBottom
-            >
-              Album layout
+          <Container maxWidth="sm" className="upload" style={{ padding: '16px' }}>
+            <Typography variant="h4" gutterBottom>
             </Typography>
-            <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              Something short and leading about the collection below—its contents,
-              the creator, etc. Make it short and sweet, but not too short so folks
-              don&apos;t simply skip over it entirely.
-            </Typography>
-            <Fab color="secondary" aria-label="add" onClick={handleButtonClick}>
-        <AddIcon />
-      </Fab> 
-          </Container>
-        </Box>
-        <Container sx={{ py: 8 }} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <Button
+                  component="label"
+                  variant="contained"
+                  onChange={handleFileChange}
+                  startIcon={<CloudUploadIcon />}
+                  onClick={handleUpload}
                 >
-                  <CardMedia
-                    component="div"
-                    sx={{
-                      // 16:9
-                      pt: '56.25%',
-                    }}
-                    image="https://source.unsplash.com/random?wallpapers"
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Heading
-                    </Typography>
-                    <Typography>  
-                      This is a media card. You can use this section to describe the
-                      content.
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small">View</Button>
-                    <Button size="small">Edit</Button>
-                    <Button variant="outlined" color="error" size="small">Delete</Button>
-
-                  </CardActions>
-                </Card>
+                  Upload Image
+                  <VisuallyHiddenInput type="file" />
+                </Button>
               </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </main>
+            </Grid>
+          </Container>
+        </Popover>
+      </div>
+
+      <ThemeProvider theme={defaultTheme}>
+        <CssBaseline />
+
+        <main>
+          {/* Hero unit */}
+          <Box
+            sx={{
+              bgcolor: 'background.paper',
+              pt: 8,
+              pb: 6,
+            }}
+          >
+            <Container maxWidth="sm">
+              <Typography
+                component="h1"
+                variant="h2"
+                align="center"
+                color="text.primary"
+                gutterBottom
+              >
+                Album layout
+              </Typography>
+              <Typography variant="h5" align="center" color="text.secondary" paragraph>
+                Something short and leading about the collection below—its contents,
+                the creator, etc. Make it short and sweet, but not too short so folks
+                don&apos;t simply skip over it entirely.
+              </Typography>
+              <Fab color="secondary" aria-label="add" onClick={handleButtonClick}>
+                <AddIcon />
+              </Fab>
+            </Container>
+          </Box>
+          <Container sx={{ py: 8 }} maxWidth="md">
+            {/* End hero unit */}
+            
+            <Grid container spacing={4}>
+              {data.map((item) => (
+                <Grid item key={item.id} xs={12} sm={6} md={4}>
+                  <Card
+                    sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                  >
+                    <CardMedia
+                      component="div"
+                      sx={{
+                        // 16:9
+                        pt: '56.25%',
+                      }}
+                      image={item.imageUrl} // Replace with your actual data structure
+                    />
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        {item.title} {/* Replace with your actual data structure */}
+                      </Typography>
+                      <Typography>
+                        {item.description} {/* Replace with your actual data structure */}
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button size="small">View</Button>
+                      <Button size="small">Edit</Button>
+                      <Button variant="outlined" color="error" size="small">
+                        Delete
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          </Container>
+        </main>
       {/* Footer */}
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
         <Typography variant="h6" align="center" gutterBottom>
