@@ -11,14 +11,10 @@ import Test from './Home/test.js';
 import { useAuth } from './Auth/Auth';
 
 
-const PrivateRoute = ({ element, ...props }) => {
-  const user = useAuth();
 
-  return user ? (
-    <Route {...props} element={element} />
-  ) : (
-    <Navigate to="/login" replace />
-  );
+const PrivateRoute = () => {
+  const user = useAuth();
+  return user ? <Route /> : <Navigate to="/login" replace />;
 };
 
 const App = () => {
@@ -33,18 +29,34 @@ const App = () => {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<LandingPage />} />
+          <Route
+            path="/home"
+            element={
+              user ? (
+                <>
+                  <Cards />
+                  <SwipeButtons />
+                  {/* Add more components or content as needed */}
+                </>
+              ) : (
+                <Navigate to="/login" replace />
+              )
+            }
+          />
+          <Route
+            path="/profile"
+            element={user ? <Profile /> : <Navigate to="/login" replace />}
+          />
+          <Route
+            path="/test"
+            element={user ? <Test /> : <Navigate to="/login" replace />}
+          />
+          <Route
+            path="/upload"
+            element={user ? <Upload /> : <Navigate to="/login" replace />}
+          />
 
-          {/* Use array to wrap the PrivateRoute instances */}
-          {[
-            <PrivateRoute key="/home" path="/home" element={<>
-              <Cards />
-              <SwipeButtons />
-              {/* Add more components or content as needed */}
-            </>} />,
-            <PrivateRoute key="/profile" path="/profile" element={<Profile />} />,
-            <PrivateRoute key="/test" path="/test" element={<Test />} />,
-            <PrivateRoute key="/upload" path="/upload" element={<Upload />} />,
-          ]}
+          {/* Add more routes as needed */}
         </Routes>
       </div>
     </Router>
