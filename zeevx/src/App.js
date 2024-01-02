@@ -34,17 +34,17 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<LandingPage />} />
 
-          {/* Use PrivateRoute for protected routes */}
-          <React.Fragment>
-            <PrivateRoute path="/home" element={<>
+          {/* Use array to wrap the PrivateRoute instances */}
+          {[
+            <PrivateRoute key="/home" path="/home" element={<>
               <Cards />
               <SwipeButtons />
               {/* Add more components or content as needed */}
-            </>} />
-            <PrivateRoute path="/profile" element={<Profile />} />
-            <PrivateRoute path="/test" element={<Test />} />
-            <PrivateRoute path="/upload" element={<Upload />} />
-          </React.Fragment>
+            </>} />,
+            <PrivateRoute key="/profile" path="/profile" element={<Profile />} />,
+            <PrivateRoute key="/test" path="/test" element={<Test />} />,
+            <PrivateRoute key="/upload" path="/upload" element={<Upload />} />,
+          ]}
         </Routes>
       </div>
     </Router>
