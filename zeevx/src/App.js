@@ -29,32 +29,14 @@ const App = () => {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<LandingPage />} />
-          <Route
-            path="/home"
-            element={
-              user ? (
-                <>
-                  <Cards />
-                  <SwipeButtons />
-                  {/* Add more components or content as needed */}
-                </>
-              ) : (
-                <Navigate to="/login" replace />
-              )
-            }
-          />
-          <Route
-            path="/profile"
-            element={user ? <Profile /> : <Navigate to="/login" replace />}
-          />
-          <Route
-            path="/test"
-            element={user ? <Test /> : <Navigate to="/login" replace />}
-          />
-          <Route
-            path="/upload"
-            element={user ? <Upload /> : <Navigate to="/login" replace />}
-          />
+          <PrivateRoute path="/home" element={<>
+            <Cards />
+            <SwipeButtons />
+            {/* Add more components or content as needed */}
+          </>} />
+          <PrivateRoute path="/profile" element={<Profile />} />
+          <PrivateRoute path="/test" element={<Test />} />
+          <PrivateRoute path="/upload" element={<Upload />} />
 
           {/* Add more routes as needed */}
         </Routes>
