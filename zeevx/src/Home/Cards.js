@@ -1,28 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import TinderCard from 'react-tinder-card';
 import '../Css/Cards.css';
 import axios from '../Utils/axios';
-import { useAuth } from '../Auth/Auth.js';
 
 function Cards() {
   const [people, setPeople] = useState([]);
-  const navigate = useNavigate();
-  const user = useAuth();
-
-  useEffect(() => {
-    if (user === null) {
-      navigate('/login');
-      console.log(user);
-    } else {
-      async function fetchData() {
-        const req = await axios.get('/cards');
-        setPeople(req.data);
-      }
-  
-      fetchData();
-    }
-  }, [user, navigate]);
+//  const navigate = useNavigate();
   
 
   const swiped = (direction, nameToDelete) => {

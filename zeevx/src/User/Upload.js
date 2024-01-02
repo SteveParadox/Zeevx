@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import "../Css/Upload.css";
-import { useAuth } from '../Auth/Auth.js'; 
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import axios from '../Utils/axios';
 
@@ -55,7 +54,6 @@ const VisuallyHiddenInput = styled('input')({
   });
 
 function Upload() {
-  const user = useAuth();
   const { userId } = useParams();
   const [images, setImages] = useState([]);
 
@@ -79,13 +77,6 @@ function Upload() {
 
     fetchData();
   }, [userId]); 
-
-
-  if (!user) {
-
-    navigate('/login');
-    return null; 
-  }
 
 
   const handleFileChange = (event) => {
@@ -113,9 +104,6 @@ function Upload() {
     setAnchorEl(null);
   };
 
-
-
- 
 
   return (
     <>

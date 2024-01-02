@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { auth } from './Firebase.js'; 
+
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -19,7 +20,19 @@ export const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
+  const handleLogout = async () => {
+    try {
+      await auth.signOut();
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  };
+
+  return (
+    <AuthContext.Provider value={{ user, handleLogout }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export const useAuth = () => {
