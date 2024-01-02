@@ -10,6 +10,7 @@ import Profile from './User/Profile.js';
 import Test from './Home/test.js';
 import { useAuth } from './Auth/Auth';
 
+
 const PrivateRoute = ({ element, ...props }) => {
   const user = useAuth();
 
@@ -34,14 +35,16 @@ const App = () => {
           <Route path="/" element={<LandingPage />} />
 
           {/* Use PrivateRoute for protected routes */}
-          <PrivateRoute path="/home" element={<>
-            <Cards />
-            <SwipeButtons />
-            {/* Add more components or content as needed */}
-          </>} />
-          <PrivateRoute path="/profile" element={<Profile />} />
-          <PrivateRoute path="/test" element={<Test />} />
-          <PrivateRoute path="/upload" element={<Upload />} />
+          <React.Fragment>
+            <PrivateRoute path="/home" element={<>
+              <Cards />
+              <SwipeButtons />
+              {/* Add more components or content as needed */}
+            </>} />
+            <PrivateRoute path="/profile" element={<Profile />} />
+            <PrivateRoute path="/test" element={<Test />} />
+            <PrivateRoute path="/upload" element={<Upload />} />
+          </React.Fragment>
         </Routes>
       </div>
     </Router>
