@@ -9,7 +9,6 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import ForumIcon from '@mui/icons-material/Send';
 
 function Header() {
-  const user = useAuth();
   const navigate = useNavigate();
   const { user, handleLogout } = useAuth();
 
