@@ -32,6 +32,8 @@ const App = () => {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<LandingPage />} />
+
+          {/* Use PrivateRoute for protected routes */}
           <PrivateRoute path="/home" element={<>
             <Cards />
             <SwipeButtons />
@@ -40,8 +42,6 @@ const App = () => {
           <PrivateRoute path="/profile" element={<Profile />} />
           <PrivateRoute path="/test" element={<Test />} />
           <PrivateRoute path="/upload" element={<Upload />} />
-
-          {/* Add more routes as needed */}
         </Routes>
       </div>
     </Router>
