@@ -103,7 +103,6 @@ function Upload() {
   });
 
   useEffect(() => {
-
     const fetchData = async () => {
       try {
         const response = await axios.get(`/user/${userId}/images`);
@@ -112,6 +111,9 @@ function Upload() {
         console.error('Error fetching user images:', error);
       }
     };
+
+    fetchData();
+  }, [userId]); 
 
   return (
     <>
