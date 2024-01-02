@@ -1,6 +1,6 @@
 import express from "express";
 const router = express.Router();
-import dbCard from '../DB/dbCards.js';
+import dbCard from '../DB/Upload.js';
 
 router.post('/cards', (req, res) => {
     const dbCard = req.body;
