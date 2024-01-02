@@ -11,17 +11,18 @@ function Cards() {
   const user = useAuth();
 
   useEffect(() => {
-    if (!user) {
+    if (user === null) {
       navigate('/login');
     } else {
       async function fetchData() {
         const req = await axios.get('/cards');
         setPeople(req.data);
       }
-
+  
       fetchData();
     }
   }, [user, navigate]);
+  
 
   const swiped = (direction, nameToDelete) => {
     console.log('removing ' + nameToDelete);
