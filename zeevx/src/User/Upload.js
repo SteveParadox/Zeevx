@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "../Css/Upload.css";
 import { useAuth } from '../Auth/Auth.js'; 
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { Container, Button, Grid, Typography } from '@mui/material';
 import Popover from '@mui/material/Popover';
@@ -42,6 +43,10 @@ const defaultTheme = createTheme();
 
 function Upload() {
   const user = useAuth();
+  const { userId } = useParams();
+  const [images, setImages] = useState([]);
+
+
   const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState(null);
 
@@ -99,15 +104,12 @@ function Upload() {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get('/upload'); // Replace with your actual backend route
-        setData(response.data);
+        const response = await axios.get(`/user/${userId}/images`);
+        setImages(response.data);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching user images:', error);
       }
     };
-
-    fetchData();
-  }, []);
 
   return (
     <>
