@@ -26,7 +26,7 @@ const LandingPage = () => {
             src=''
             alt="close navigation"
           />
-          <ul class="primary-nav">
+         {/* <ul class="primary-nav">
             <li class="current">
               <a href="#">Home</a>
             </li>
@@ -37,11 +37,9 @@ const LandingPage = () => {
               <a href="#">Pricing</a>
             </li>
           </ul>
+  */}
 
           <ul class="second-nav">
-            <li>
-              <a href="#">Contact</a>
-            </li>
             <li class="go-premium-cta">
               <a href="/login">Login</a>
             </li>
