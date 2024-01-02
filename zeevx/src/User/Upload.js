@@ -4,6 +4,7 @@ import "../Css/Upload.css";
 import { useAuth } from '../Auth/Auth.js'; 
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import axios from '../Utils/axios';
 
 import { Container, Button, Grid, Typography } from '@mui/material';
 import Popover from '@mui/material/Popover';
@@ -186,7 +187,7 @@ function Upload() {
             {/* End hero unit */}
             
             <Grid container spacing={4}>
-              {data.map((item) => (
+              {images.map((item) => (
                 <Grid item key={item.id} xs={12} sm={6} md={4}>
                   <Card
                     sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
