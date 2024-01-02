@@ -6,6 +6,7 @@ import corsOptions from './corsConfig.js';
 import googleLoginRouter from './Routes/Login.js';
 import CardRouter from './Routes/Cards.js';
 import UploadRouter from './Routes/dataUpload.js';
+import User from './DB/User.js';
 
 
 
@@ -18,6 +19,42 @@ const uri = 'mongodb+srv://fordstphn:JOvRV8fE35skPjEp@cluster0.ronso6r.mongodb.n
 // Middlewares
 app.use(express.json());
 app.use(cors(corsOptions));
+
+app.use('/api', authMiddleware);
+
+app.get('/api/protected-resource', (req, res) => {
+    try {
+        const { uid, email, displayName } = req.user;
+        await saveUserDataToDatabase({ uid, email, displayName });
+        res.json({ message: 'Successfully accessed protected resource', user: req.user, additionalInfo });
+    } catch (error) {
+        console.error('Error performing backend operations:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+}});
+
+async function saveUserDataToDatabase(userData) {
+    try {
+      const newUser = new User({
+        uid: userData.uid,
+        email: userData.email,
+        displayName: userData.displayName,
+      });
+  
+      await newUser.save();
+  
+      console.log('User data saved to the database:', userData);
+      return { success: true, message: 'User data saved successfully.' };
+    } catch (error) {
+      console.error('Error saving user data to the database:', error);
+  
+      if (error.code === 11000) {
+        return { success: false, message: 'User already exists.' };
+      }
+  
+      return { success: false, message: 'Internal Server Error' };
+    }
+  }
+  
 
 
 //Db Config
