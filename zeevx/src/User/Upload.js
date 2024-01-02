@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
 import "../Css/Upload.css";
 import { useAuth } from '../Auth/Auth.js'; 
 import { useNavigate } from 'react-router-dom';
@@ -51,7 +52,8 @@ function Upload() {
   const [selectedFile, setSelectedFile] = useState(null);
 
   const [anchorEl, setAnchorEl] = useState(null);
-
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
 
   if (!user) {
 
@@ -85,8 +87,7 @@ function Upload() {
     setAnchorEl(null);
   };
 
-  const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
+
 
   const VisuallyHiddenInput = styled('input')({
     clip: 'rect(0 0 0 0)',
