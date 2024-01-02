@@ -58,7 +58,7 @@ function Upload() {
   const [images, setImages] = useState([]);
 
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState(null);
 
   const [anchorEl, setAnchorEl] = useState(null);
