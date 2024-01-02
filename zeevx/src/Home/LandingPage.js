@@ -66,7 +66,7 @@ const LandingPage = () => {
           </div>
         </div>
 
-        <img src='https://assets-prd.ignimgs.com/2022/08/17/top25animecharacters-blogroll-1660777571580.jpg' alt="Illustration" class="hero-img" />
+        <img src='https://pyrkon.pl/wp-content/uploads/2023/03/Kurune_Kokuri_Portrait.png.webp' alt="Illustration" class="hero-img" />
       </div>
     </section>
     {/* <!--SECTION HERO BLOG END--> */}
