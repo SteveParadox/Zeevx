@@ -66,7 +66,7 @@ const LandingPage = () => {
           </div>
         </div>
 
-        <img src='https://i0.wp.com/www.primebusiness.africa/wp-content/uploads/2023/02/iPhone-15.png?fit=1200%2C741&ssl=1' alt="Illustration" class="hero-img" />
+        <img src='https://assets-prd.ignimgs.com/2022/08/17/top25animecharacters-blogroll-1660777571580.jpg' alt="Illustration" class="hero-img" />
       </div>
     </section>
     {/* <!--SECTION HERO BLOG END--> */}

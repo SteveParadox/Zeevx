@@ -55,8 +55,6 @@ async function saveUserDataToDatabase(userData) {
     }
   }
   
-
-
 //Db Config
 mongoose.connect(uri, {
     useNewUrlParser: true,

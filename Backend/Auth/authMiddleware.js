@@ -16,8 +16,16 @@ router.use(async (req, res, next) => {
     next();
   } catch (error) {
     console.error('Error verifying ID token:', error);
+
+    // development
+    if (process.env.NODE_ENV === 'development') {
+      return res.status(401).json({ error: 'Unauthorized', details: error.message });
+    }
+
+    // In production
     res.status(401).json({ error: 'Unauthorized' });
   }
 });
+
 
 export default router;
