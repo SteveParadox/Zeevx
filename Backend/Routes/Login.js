@@ -7,18 +7,23 @@ router.post('/google-login', async (req, res) => {
   try {
     const { displayName, email } = req.body;
 
-    // Save user data to MongoDB
+    const existingUser = await User.findOne({ email });
+
+    if (existingUser) {
+      return res.status(200).json({ message: 'User already exists. Login successful.' });
+    }
+
     const newUser = new User({
       displayName,
       email,
-      // Add more fields as needed
+      password,
     });
 
     await newUser.save();
 
     res.status(200).json({ message: 'User data saved successfully.' });
   } catch (error) {
-    console.error('Error saving user data:', error.message);
+    console.error('Error during Google login:', error.message);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
