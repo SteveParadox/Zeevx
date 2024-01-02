@@ -8,7 +8,7 @@ import Login from './Auth/Login';
 import Upload from './User/Upload';
 import Profile from './User/Profile.js';
 import Test from './Home/test.js';
-import { useAuth } from '../Auth/Auth';
+import { useAuth } from './Auth/Auth';
 
 const PrivateRoute = ({ element, ...props }) => {
   const user = useAuth();
