@@ -42,6 +42,17 @@ function Copyright() {
 
 
 const defaultTheme = createTheme();
+const VisuallyHiddenInput = styled('input')({
+    clip: 'rect(0 0 0 0)',
+    clipPath: 'inset(50%)',
+    height: 1,
+    overflow: 'hidden',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    whiteSpace: 'nowrap',
+    width: 1,
+  });
 
 function Upload() {
   const user = useAuth();
@@ -55,6 +66,20 @@ function Upload() {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`/user/${userId}/images`);
+        setImages(response.data);
+      } catch (error) {
+        console.error('Error fetching user images:', error);
+      }
+    };
+
+    fetchData();
+  }, [userId]); 
+
 
   if (!user) {
 
@@ -90,30 +115,7 @@ function Upload() {
 
 
 
-  const VisuallyHiddenInput = styled('input')({
-    clip: 'rect(0 0 0 0)',
-    clipPath: 'inset(50%)',
-    height: 1,
-    overflow: 'hidden',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    whiteSpace: 'nowrap',
-    width: 1,
-  });
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`/user/${userId}/images`);
-        setImages(response.data);
-      } catch (error) {
-        console.error('Error fetching user images:', error);
-      }
-    };
-
-    fetchData();
-  }, [userId]); 
+ 
 
   return (
     <>
