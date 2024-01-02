@@ -13,6 +13,7 @@ function Cards() {
   useEffect(() => {
     if (user === null) {
       navigate('/login');
+      console.log(user);
     } else {
       async function fetchData() {
         const req = await axios.get('/cards');
