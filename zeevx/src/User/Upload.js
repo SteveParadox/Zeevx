@@ -242,7 +242,6 @@ function Upload() {
     </ThemeProvider>
     </>
   );
-});
 };
 
 export default Upload;
