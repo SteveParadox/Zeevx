@@ -39,12 +39,13 @@ const App = () => {
           {!isLoginPage && !isLandingPage && <Header />}
           <Routes>
             <Route path="/login" element={<Login />} />
+            <Route path="/" element={<LandingPage />} />
+
             <Route
               path="*"  
               element={
                 <PrivateRoute>
-                  <Route index element={<LandingPage />} />
-                  <Route path="/home" element={<>
+                  <Route index path="/home" element={<>
                     <Cards />
                     <SwipeButtons />
                     {/* Add more components or content as needed */}
