@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{ Fragment } from 'react';
 import { Routes, Route, BrowserRouter as Router, Navigate } from 'react-router-dom';
 import Header from './Home/Header';
 import Cards from './Home/Cards';
@@ -25,7 +25,6 @@ const App = () => {
     <Router>
      
         <Fragment>
-        <Navbar />
         <div className="App">
         {!isLoginPage && !isLandingPage && <Header />}
 
@@ -33,7 +32,7 @@ const App = () => {
           <Route path='/login' element={<Login />} />
 
           <Route path='/' element={<PrivateRoute />}>
-            <Route index element={<Home />} />
+            <Route index element={<LandingPage />} />
             <Route path='/home' element={<>
               <Cards />
               <SwipeButtons />
