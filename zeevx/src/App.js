@@ -16,16 +16,16 @@ const PrivateRoute = ({ element }) => {
   const user = useAuth();
   const navigate = useNavigate();
 
-
   useEffect(() => {
     if (!user) {
       // Navigate to the login page if the user is not authenticated
       navigate('/login', { replace: true });
     }
-  }, [user]);
+  }, [user, navigate]);
 
-  return user ? element : null;
+  return user ? <Routes>{element}</Routes> : null;
 };
+
 
 
 const App = () => {
