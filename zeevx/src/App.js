@@ -42,7 +42,7 @@ const PrivateRoute = () => {
       // Navigate to the login page if the user is not authenticated
       navigate('/login', { replace: true });
     }
-  }, [user]);
+  }, [user, navigate]);
 
   return user ? (
     <Routes>
