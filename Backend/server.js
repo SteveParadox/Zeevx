@@ -20,7 +20,7 @@ const uri = 'mongodb+srv://fordstphn:JOvRV8fE35skPjEp@cluster0.ronso6r.mongodb.n
 app.use(express.json());
 app.use(cors(corsOptions));
 
-app.use('/api', authMiddleware);
+// app.use('/api', authMiddleware);
 
 app.get('/api/protected-resource', (req, res) => {
     try {
