@@ -11,25 +11,6 @@ import Test from './Home/test.js';
 import { useAuth } from './Auth/Auth';
 
 
-
-const PrivateRoute = ({ element }) => {
-  const user = useAuth();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!user) {
-      // Navigate to the login page if the user is not authenticated
-      navigate('/login', { replace: true });
-    }
-  }, [user, navigate]);
-
-  return user ? <Routes>{element}</Routes> : null;
-};
-
-
-
-// ... (previous imports)
-
 const App = () => {
   const isLoginPage = window.location.pathname === '/login';
   const isLandingPage = window.location.pathname === '/';
