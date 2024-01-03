@@ -11,8 +11,6 @@ import Test from './Home/test.js';
 import { useAuth } from './Auth/Auth';
 
 
-// ... (previous imports)
-
 const App = () => {
   const isLoginPage = window.location.pathname === '/login';
   const isLandingPage = window.location.pathname === '/';
@@ -25,7 +23,7 @@ const App = () => {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route
-              path="/*"
+              path="/*"  
               element={<PrivateRoute />}
             />
           </Routes>
@@ -44,10 +42,10 @@ const PrivateRoute = () => {
       // Navigate to the login page if the user is not authenticated
       navigate('/login', { replace: true });
     }
-  }, [user]);
+  }, [user, navigate]);
 
   return user ? (
-    <>
+    <Routes>
       <Route index element={<LandingPage />} />
       <Route path="/home" element={<>
         <Cards />
@@ -57,7 +55,7 @@ const PrivateRoute = () => {
       <Route path="/profile" element={<Profile />} />
       <Route path="/test" element={<Test />} />
       <Route path="/upload" element={<Upload />} />
-    </>
+    </Routes>
   ) : null;
 };
 
