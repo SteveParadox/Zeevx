@@ -25,7 +25,7 @@ app.use('/api', authMiddleware);
 app.get('/api/protected-resource', (req, res) => {
     try {
         const { uid, email, displayName } = req.user;
-        await saveUserDataToDatabase({ uid, email, displayName });
+        // await saveUserDataToDatabase({ uid, email, displayName });
         res.json({ message: 'Successfully accessed protected resource', user: req.user, additionalInfo });
     } catch (error) {
         console.error('Error performing backend operations:', error);
