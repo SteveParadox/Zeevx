@@ -12,10 +12,11 @@ import { useAuth } from './Auth/Auth';
 
 
 
-const PrivateRoute = () => {
+const PrivateRoute = ({ element }) => {
   const user = useAuth();
-  return user ? <Route /> : <Navigate to="/login" replace />;
+  return user ? element : <Navigate to="/login" replace />;
 };
+
 
 const App = () => {
   const isLoginPage = window.location.pathname === '/login';
