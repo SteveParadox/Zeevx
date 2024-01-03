@@ -23,26 +23,30 @@ const App = () => {
 
   return (
     <Router>
-      <div className="App">
+     
+        <Fragment>
+        <Navbar />
+        <div className="App">
         {!isLoginPage && !isLandingPage && <Header />}
 
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<LandingPage />} />
-          <PrivateRoute path="/home" element={<>
-            <Cards />
-            <SwipeButtons />
-            {/* Add more components or content as needed */}
-          </>} />
-          <PrivateRoute path="/profile" element={<Profile />} />
-          <PrivateRoute path="/test" element={<Test />} />
-          <PrivateRoute path="/upload" element={<Upload />} />
+          <Route path='/login' element={<Login />} />
 
-          {/* Add more routes as needed */}
+          <Route path='/' element={<PrivateRoute />}>
+            <Route index element={<Home />} />
+            <Route path='/home' element={<>
+              <Cards />
+              <SwipeButtons />
+              {/* Add more components or content as needed */}
+            </>} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/test' element={<Test />} />
+            <Route path='/upload' element={<Upload />} />
+          </Route>
         </Routes>
-      </div>
+        </div>
+      </Fragment>
     </Router>
   );
 };
-
 export default App;
