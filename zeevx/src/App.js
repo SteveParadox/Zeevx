@@ -40,7 +40,7 @@ const App = () => {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route
-              path="/*"  
+              path="*"  
               element={
                 <PrivateRoute>
                   <Route index element={<LandingPage />} />
