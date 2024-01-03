@@ -28,6 +28,8 @@ const PrivateRoute = ({ element }) => {
 
 
 
+// ... (previous imports)
+
 const App = () => {
   const isLoginPage = window.location.pathname === '/login';
   const isLandingPage = window.location.pathname === '/';
@@ -39,22 +41,9 @@ const App = () => {
           {!isLoginPage && !isLandingPage && <Header />}
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<LandingPage />} />
-
             <Route
-              path="*"  
-              element={
-                <PrivateRoute>
-                  <Route index path="/home" element={<>
-                    <Cards />
-                    <SwipeButtons />
-                    {/* Add more components or content as needed */}
-                  </>} />
-                  <Route path="/profile" element={<Profile />} />
-                  <Route path="/test" element={<Test />} />
-                  <Route path="/upload" element={<Upload />} />
-                </PrivateRoute>
-              }
+              path="/*"  
+              element={<PrivateRoute />}
             />
           </Routes>
         </div>
@@ -62,4 +51,31 @@ const App = () => {
     </Router>
   );
 };
+
+const PrivateRoute = () => {
+  const user = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) {
+      // Navigate to the login page if the user is not authenticated
+      navigate('/login', { replace: true });
+    }
+  }, [user]);
+
+  return user ? (
+    <Routes>
+      <Route index element={<LandingPage />} />
+      <Route path="/home" element={<>
+        <Cards />
+        <SwipeButtons />
+        {/* Add more components or content as needed */}
+      </>} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/test" element={<Test />} />
+      <Route path="/upload" element={<Upload />} />
+    </Routes>
+  ) : null;
+};
+
 export default App;
