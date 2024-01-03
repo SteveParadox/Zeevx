@@ -1,4 +1,4 @@
-import React ,{ Fragment } from 'react';
+import React ,{ Fragment, useEffect } from 'react';
 import { Routes, Route, BrowserRouter as Router, Navigate } from 'react-router-dom';
 import Header from './Home/Header';
 import Cards from './Home/Cards';
@@ -14,7 +14,15 @@ import { useAuth } from './Auth/Auth';
 
 const PrivateRoute = ({ element }) => {
   const user = useAuth();
-  return user ? element : <Navigate to="/login" replace />;
+
+  useEffect(() => {
+    if (!user) {
+      // Navigate to the login page if the user is not authenticated
+      navigate('/login', { replace: true });
+    }
+  }, [user]);
+
+  return user ? element : null;
 };
 
 
