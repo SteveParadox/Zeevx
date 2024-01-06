@@ -2,7 +2,7 @@ import { useLocation, Navigate, Outlet} from "react-router-dom";
 import useAuth from "../Hooks/useAuth"
 
 const RequiredAuth = () => {
-    const { auth } = useAuth();
+    const { user, handleLogout } = useAuth();
     const location = useLocation();
 
 
