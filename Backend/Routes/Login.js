@@ -36,7 +36,7 @@ router.post('/google-login', async (req, res) => {
 });
 
 
-router.post('/login'), async function(req, res, next) {
+router.post('/login', async function(req, res, next) {
   const { email, password } = req.body;
 
   let emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -73,15 +73,15 @@ router.post('/login'), async function(req, res, next) {
       console.log(error)
       res.status(httpStatus.BAD_REQUEST).send(error)
   }
-}
+});
 
-router.post('/api/logout') = async function(req,res,next) {
+router.post('/api/logout', async function(req, res, next) {
   try {
       await User.findByIdAndUpdate(req.id, {$set: {tokens: []}});
       res.send({message: "You've been Logged out successfully!"})
   } catch (error) {
      res.status(httpStatus.BAD_REQUEST).send(error)
   }
-}
+});
 
 export default router;
