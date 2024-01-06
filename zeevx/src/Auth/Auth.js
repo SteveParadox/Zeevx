@@ -1,13 +1,13 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { auth } from './Firebase.js'; 
+import { FirebaseAuth } from './Firebase.js'; 
 
-const AuthContext = createContext();
+const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [auth, setAuth] = useState({});
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+    const unsubscribe = FirebaseAuth.onAuthStateChanged((authUser) => {
       if (authUser) {
         setUser(authUser);
       } else {
@@ -22,19 +22,17 @@ export const AuthProvider = ({ children }) => {
 
   const handleLogout = async () => {
     try {
-      await auth.signOut();
+      await FirebaseAuth.signOut();
     } catch (error) {
       console.error('Error logging out:', error);
     }
   };
 
   return (
-    <AuthContext.Provider value={{ user, handleLogout }}>
+    <AuthContext.Provider value={{ auth, setAuth }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
+export default AuthContext;
