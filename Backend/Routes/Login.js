@@ -2,7 +2,7 @@ import express from "express";
 const router = express.Router();
 import User from '../DB/User.js';
 import httpStatus from 'http-status';
-import ApiError from '../Utils/ApiError';
+import ApiError from '../Utils/ApiError.js';
 import { acceptableGender, acceptableCountries, comparePassword } from '../Utils/helpers';
 
 let authController = {};
