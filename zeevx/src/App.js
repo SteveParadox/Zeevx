@@ -8,7 +8,7 @@ import Login from './Auth/Login';
 import Upload from './User/Upload';
 import Profile from './User/Profile.js'
 import Error from './Home/Error.js'
-import RequiredAuth from './Auth/RequiredAuth';
+import RequiredAuth from './Auth/RequireAuth';
 
 const App = () => {
   const isLoginPage = window.location.pathname === '/login';
