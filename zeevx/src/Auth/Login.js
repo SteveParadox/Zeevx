@@ -55,8 +55,9 @@ const Login = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
-    const userRef = useRef();
-    const errRef = useRef();
+    const userRef = useRef(null); 
+    const errRef = useRef(null); 
+    
 
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
