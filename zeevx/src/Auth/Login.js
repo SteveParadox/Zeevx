@@ -24,6 +24,12 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import { useRef, useState, useEffect } from 'react';
+import useAuth from '../Hooks/useAuth';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+
+import axios from '../Utils/axios';
+
 
 function Copyright(props) {
   return (
@@ -43,15 +49,63 @@ const defaultTheme = createTheme();
 
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+ // const [username, setUsername] = useState('');
+ // const [password, setPassword] = useState('');
+ 
+    const { setAuth } = useAuth();
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
-  const handleLogin = () => {
-    // Implement your traditional login logic here
-    // You can use state values (username and password) for authentication
-  };
+    const userRef = useRef();
+    const errRef = useRef();
+
+    const [user, setUser] = useState('');
+    const [pwd, setPwd] = useState('');
+    const [errMsg, setErrMsg] = useState('');
+
+    useEffect(() => {
+        userRef.current.focus();
+    }, [])
+
+    useEffect(() => {
+        setErrMsg('');
+    }, [user, pwd])
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await axios.post('http://localhost:8001/login',
+                JSON.stringify({ user, pwd }),
+                {
+                    headers: { 'Content-Type': 'application/json' },
+                    withCredentials: true
+                }
+            );
+            console.log(JSON.stringify(response?.data));
+            //console.log(JSON.stringify(response));
+            const accessToken = response?.data?.accessToken;
+            const roles = response?.data?.roles;
+            setAuth({ user, pwd, roles, accessToken });
+            setUser('');
+            setPwd('');
+            navigate(from, { replace: true });
+        } catch (err) {
+            if (!err?.response) {
+                setErrMsg('No Server Response');
+            } else if (err.response?.status === 400) {
+                setErrMsg('Missing Username or Password');
+            } else if (err.response?.status === 401) {
+                setErrMsg('Unauthorized');
+            } else {
+                setErrMsg('Login Failed');
+            }
+            errRef.current.focus();
+        }
+      };
+
 
 
   const handleGoogleLogin = async () => {
@@ -74,7 +128,7 @@ const Login = () => {
       const data = await response.json();
       console.log('Backend response:', data);
   
-      navigate('/home');
+      navigate(from, { replace: true });
     } catch (error) {
       console.error('Error signing in with Google:', error.message);
     }
@@ -111,12 +165,13 @@ const Login = () => {
               required
               fullWidth
               id="email"
+              ref={userRef}
               label="Email Address"
               name="email"
               autoComplete="email"
               autoFocus
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={user}
+              onChange={(e) => setUser(e.target.value)}
             />
 
             <TextField
@@ -128,8 +183,8 @@ const Login = () => {
                           type="password"
                           id="password"
                           autoComplete="current-password"
-                          value={password}
-                          onChange={(e) => setPassword(e.target.value)}
+                          value={pwd}
+                          onChange={(e) => setPwd(e.target.value)}
                         />
           <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -150,7 +205,7 @@ const Login = () => {
           color="secondary"
           startIcon={<GoogleIcon />} 
           onClick={handleGoogleLogin}
-        >
+          >
           Login with Google
         </Button>
         <MicrosoftLogin onMicrosoftLogin={handleMicrosoftLogin} />
