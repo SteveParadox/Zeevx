@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import httpStatus from 'http-status';
-import ApiError from './ApiError';
+import ApiError from './ApiError.js';
 
 const helper = {};
 
