@@ -17,7 +17,7 @@ const App = () => {
         {!isLoginPage && <Header />} {/* Conditionally render Header */}
         
         <Routes>      
-          <Route path="/" element={<LandingPage />} >
+          <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/home" element={<>
@@ -30,7 +30,6 @@ const App = () => {
           {/* Add more routes as needed */}
           <Route path="*" element={<Error />} />
 
-          </Route>
         </Routes>
       </div>
   );
