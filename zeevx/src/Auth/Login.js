@@ -204,7 +204,6 @@ const Login = () => {
                 startIcon={<GoogleIcon />} 
                 onClick={handleGoogleLogin}
               >
-                Login with Google
               </Button>
               <MicrosoftLogin onMicrosoftLogin={handleMicrosoftLogin} />
             </div>
