@@ -3,7 +3,7 @@ import { FirebaseAuth } from './Firebase.js';
 
 const AuthContext = createContext({});
 
-export const AuthProvider = ({ children }) => {
+const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({});
 
   useEffect(() => {
