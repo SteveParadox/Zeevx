@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { auth, provider } from './Firebase.js';
+import { FirebaseAuth, provider } from './Firebase.js';
 import MicrosoftLogin from './MicrosoftLogin';
 import { TextField, Button, Grid, Paper, Typography } from '@mui/material';
 import { signInWithPopup } from 'firebase/auth';
@@ -56,7 +56,7 @@ const Login = () => {
 
   const handleGoogleLogin = async () => {
     try {
-      const result = await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(FirebaseAuth, provider);
       const user = result.user;
       console.log('Logged in with Google:', user);
   

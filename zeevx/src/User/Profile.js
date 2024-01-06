@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useAuth } from '../Auth/Auth.js'; 
+import useAuth from "../Hooks/useAuth";
 import { updateProfile } from 'firebase/auth'; 
 
 const Profile = () => {
-  const user = useAuth();
+  const {user} = useAuth();
   const [displayName, setDisplayName] = useState(user?.displayName || '');
   const [photoURL, setPhotoURL] = useState(user?.photoURL || '');
 

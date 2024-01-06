@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../Auth/Auth'; 
+// import { AuthProvider } from '../Auth/Auth'; 
 
 import "../Css/Header.css";
 import Person4Icon from '@mui/icons-material/Person4';
@@ -9,8 +9,8 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import ForumIcon from '@mui/icons-material/Send';
 
 function Header() {
-  const { user, handleLogout } = useAuth();
-
+  // const { user, handleLogout } = AuthProvider();
+// onClick={handleLogout}
 
   return (
     <div className="header">
@@ -25,7 +25,7 @@ function Header() {
               <AcUnitIcon fontSize="large" className="header__icon" />
             </IconButton>
           </Link>
-          <IconButton onClick={handleLogout}>
+          <IconButton >
             <ForumIcon fontSize="large" className="header__icon" />
           </IconButton>
         </>
