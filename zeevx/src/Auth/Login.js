@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState, useEffect  } from 'react';
 import { FirebaseAuth, provider } from './Firebase.js';
 import MicrosoftLogin from './MicrosoftLogin';
 import { TextField, Button, Grid, Paper, Typography } from '@mui/material';
@@ -24,7 +24,6 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import { useRef, useState, useEffect } from 'react';
 import useAuth from '../Hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
