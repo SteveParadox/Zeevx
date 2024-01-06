@@ -8,6 +8,7 @@ import Login from './Auth/Login';
 import Upload from './User/Upload';
 import Profile from './User/Profile.js'
 import Error from './Home/Error.js'
+import RequiredAuth from './Auth/RequiredAuth';
 
 const App = () => {
   const isLoginPage = window.location.pathname === '/login';
@@ -19,14 +20,16 @@ const App = () => {
         <Routes>      
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/upload" element={<Upload />} />
-          <Route path="/home" element={<>
-            <Cards />
-            <SwipeButtons />
-            {/* Add more components or content as needed */}
-          </>} />
-          <Route path="/profile" element={<Profile />} />
 
+            <Route element = {<RequiredAuth />}>
+                <Route path="/upload" element={<Upload />} />
+                <Route path="/home" element={<>
+                  <Cards />
+                  <SwipeButtons />
+                  {/* Add more components or content as needed */}
+                </>} />
+                <Route path="/profile" element={<Profile />} />
+          </Route>
           {/* Add more routes as needed */}
           <Route path="*" element={<Error />} />
 
