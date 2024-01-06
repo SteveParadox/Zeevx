@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 import httpStatus from 'http-status';
 import ApiError from './ApiError.js';
 
-const helper = {};
+export const helper = {};
 
 helper.acceptableCountries = ['nigeria'];
 helper.acceptableGender = ['male', 'female'];
