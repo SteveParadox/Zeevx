@@ -23,7 +23,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import useAuth from '../Hooks/useAuth';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import {  Link as _Link, useNavigate, useLocation } from 'react-router-dom';
 
 import axios from '../Utils/axios';
 
