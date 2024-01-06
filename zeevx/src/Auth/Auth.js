@@ -9,9 +9,9 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = FirebaseAuth.onAuthStateChanged((authUser) => {
       if (authUser) {
-        setUser(authUser);
+        setAuth(authUser);
       } else {
-        setUser(null);
+        setAuth(null);
       }
     });
 
