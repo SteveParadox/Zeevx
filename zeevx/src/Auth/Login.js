@@ -197,15 +197,18 @@ const Login = () => {
             >
               Sign In
             </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          startIcon={<GoogleIcon />} 
-          onClick={handleGoogleLogin}
-          >
-          Login with Google
-        </Button>
-        <MicrosoftLogin onMicrosoftLogin={handleMicrosoftLogin} />
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <Button
+                variant="contained"
+                color="secondary"
+                startIcon={<GoogleIcon />} 
+                onClick={handleGoogleLogin}
+              >
+                Login with Google
+              </Button>
+              <MicrosoftLogin onMicrosoftLogin={handleMicrosoftLogin} />
+            </div>
+
         <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
