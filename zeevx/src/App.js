@@ -6,16 +6,18 @@ import LandingPage from './Home/LandingPage.js';
 import SwipeButtons from './Home/swipeButtons.js';
 import Login from './Auth/Login';
 import Upload from './User/Upload';
+import Test from './Home/test.js';
 import Profile from './User/Profile.js'
 import Error from './Home/Error.js'
 import RequiredAuth from './Auth/RequireAuth';
 
 const App = () => {
   const isLoginPage = window.location.pathname === '/login';
+  const isLandingPage = window.location.pathname === '/';
 
   return (
       <div className="App">
-        {!isLoginPage && <Header />} {/* Conditionally render Header */}
+          {!isLoginPage && !isLandingPage && <Header />}
         
         <Routes>      
           <Route path="/" element={<LandingPage />} />
@@ -23,6 +25,8 @@ const App = () => {
 
             <Route element = {<RequiredAuth />}>
                 <Route path="/upload" element={<Upload />} />
+                <Route path="/test" element={<Test />} />
+
                 <Route path="/home" element={<>
                   <Cards />
                   <SwipeButtons />
