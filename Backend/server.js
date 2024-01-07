@@ -8,7 +8,7 @@ import CardRouter from './Routes/Cards.js';
 import UploadRouter from './Routes/dataUpload.js';
 import User from './DB/User.js';
 
-import passport from 'passport.js';
+import passport from 'passport';
 import cookieSession from "cookie-session.js";
 
 import passportSetup from '../Auth/passport.js'
