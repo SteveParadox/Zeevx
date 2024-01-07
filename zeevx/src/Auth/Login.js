@@ -48,6 +48,12 @@ const defaultTheme = createTheme();
 const Login = () => {
  // const [username, setUsername] = useState('');
  // const [password, setPassword] = useState('');
+    const googleAuth = () => {
+      window.open(
+        'http://localhost:8001/auth/google/callback',
+        "_self"
+      );
+    };
  
     const { setAuth } = useAuth();
 
@@ -194,7 +200,7 @@ const Login = () => {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={handleLogin}
+              onClick={googleAuth}
             >
               Sign In
             </Button>
