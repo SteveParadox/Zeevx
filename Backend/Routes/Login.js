@@ -10,6 +10,20 @@ const { acceptableGender, acceptableCountries, comparePassword } = helper;
 
 let authController = {};
 
+
+router.get("/login/success", (req,res) => {
+  if(req.user){
+    res.status(200).json({
+      error: false,
+      message: "Logged in",
+      user: req.user,
+    });
+
+  } else{
+    res.status(403).json({ error: true, message: "Not Authorized"})
+  }
+});
+
 router.get("/login/failed", (req, res) =>{
   res.status(401).json({
     error: true,
@@ -24,6 +38,7 @@ router.get('/google/callback', passport.authenticate("google", {
 })
 );
 
+router.get("/google", passport.authenticate("google", ["profile", "email"]));
 
 router.post('/google-login', async (req, res) => {
   try {
@@ -92,9 +107,10 @@ router.post('/login', async function(req, res, next) {
 
 router.post('/api/logout', async function(req, res, next) {
   try {
-      await User.findByIdAndUpdate(req.id, {$set: {tokens: []}});
-      res.send({message: "You've been Logged out successfully!"})
-  } catch (error) {
+      // await User.findByIdAndUpdate(req.id, {$set: {tokens: []}});
+      req.logout();
+      res.redirect(process.env.CLIENT_URL);
+    } catch (error) {
      res.status(httpStatus.BAD_REQUEST).send(error)
   }
 });

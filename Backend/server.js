@@ -86,7 +86,7 @@ send(
 "   Hello World"
 ));
 
-app.use('/', googleLoginRouter);
+app.use('/auth', googleLoginRouter);
 app.use('/', CardRouter);
 app.use('/', UploadRouter);
 
