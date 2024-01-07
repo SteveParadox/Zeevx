@@ -11,7 +11,7 @@ import User from './DB/User.js';
 import passport from 'passport';
 import cookieSession from "cookie-session";
 
-import passportSetup from '../Auth/passport.js'
+import passportSetup from './Auth/passport.js'
 
 import dotenv from 'dotenv';
 dotenv.config();
