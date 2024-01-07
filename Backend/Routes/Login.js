@@ -4,7 +4,7 @@ import User from '../DB/User.js';
 import httpStatus from 'http-status';
 import ApiError from '../Utils/ApiError.js';
 import helper from '../Utils/helpers.js';
-import passport from 'passport.js';
+import passport from 'passport';
 
 const { acceptableGender, acceptableCountries, comparePassword } = helper;
 
