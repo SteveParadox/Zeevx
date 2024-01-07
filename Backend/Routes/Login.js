@@ -4,10 +4,25 @@ import User from '../DB/User.js';
 import httpStatus from 'http-status';
 import ApiError from '../Utils/ApiError.js';
 import helper from '../Utils/helpers.js';
+import passport from 'passport.js';
 
 const { acceptableGender, acceptableCountries, comparePassword } = helper;
 
 let authController = {};
+
+router.get("/login/failed", (req, res) =>{
+  res.status(401).json({
+    error: true,
+    message: "Login Failure"
+  });
+});
+
+
+router.get('/google/callback', passport.authenticate("google", {
+  successRedirect: process.env.CLIENT_URL,
+  failureRedirect: "/login/failed",
+})
+);
 
 
 router.post('/google-login', async (req, res) => {
