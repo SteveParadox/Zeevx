@@ -5,6 +5,7 @@ import httpStatus from 'http-status';
 import ApiError from '../Utils/ApiError.js';
 import helper from '../Utils/helpers.js';
 import passport from 'passport';
+import authMiddleware from '../Auth/authMiddleware.js';
 
 const { acceptableGender, acceptableCountries, comparePassword } = helper;
 
@@ -40,30 +41,7 @@ router.get('/google/callback', passport.authenticate("google", {
 
 router.get("/google", passport.authenticate("google", ["profile", "email"]));
 
-router.post('/google-login', async (req, res) => {
-  try {
-    const { displayName, email } = req.body;
-
-    const existingUser = await User.findOne({ email });
-
-    if (existingUser) {
-      return res.status(200).json({ message: 'User already exists. Login successful.' });
-    }
-
-    const newUser = new User({
-      displayName,
-      email,
-      password,
-    });
-
-    await newUser.save();
-
-    res.status(200).json({ message: 'User data saved successfully.' });
-  } catch (error) {
-    console.error('Error during Google login:', error.message);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
+router.use('/google-login', authMiddleware)
 
 
 router.post('/login', async function(req, res, next) {

@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect  } from 'react';
 import { FirebaseAuth, provider } from './Firebase.js';
 import MicrosoftLogin from './MicrosoftLogin';
 import { TextField, Button, Grid, Paper, Typography } from '@mui/material';
-import { signInWithPopup } from 'firebase/auth';
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 
 
@@ -41,7 +41,7 @@ function Copyright(props) {
   );
 }
 
-
+const provider = new GoogleAuthProvider();
 const defaultTheme = createTheme();
 
 
@@ -112,32 +112,38 @@ const Login = () => {
 
 
 
-  const handleGoogleLogin = async () => {
-    try {
-      const result = await signInWithPopup(FirebaseAuth, provider);
-      const user = result.user;
-      console.log('Logged in with Google:', user);
-  
-      const response = await fetch('http://localhost:8001/google-login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          displayName: user.displayName,
-          email: user.email,
-        }),
-      });
-  
-      const data = await response.json();
-      console.log('Backend response:', data);
-  
-      navigate(from, { replace: true });
-    } catch (error) {
-      console.error('Error signing in with Google:', error.message);
-    }
-  };
+const handleGoogleLogin = async () => {
+  try {
+    // Sign in with Google
+    const result = await signInWithPopup(FirebaseAuth, provider);
+    const user = result.user;
+    console.log('Logged in with Google:', user);
 
+    // Get the user's ID token
+    const idToken = await user.getIdToken();
+    console.log(idToken);
+
+    // Send the ID token to your backend
+    const response = await fetch('http://localhost:8001/google-login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${idToken}`, 
+      },
+      body: JSON.stringify({
+        displayName: user.displayName,
+        email: user.email,
+      }),
+    });
+
+    const data = await response.json();
+    console.log('Backend response:', data);
+
+    navigate(from, { replace: true });
+  } catch (error) {
+    console.error('Error signing in with Google:', error.message);
+  }
+};
 
   const handleMicrosoftLogin = (loginResponse) => {
     // Handle the Microsoft login response, e.g., send to server, update state, etc.
