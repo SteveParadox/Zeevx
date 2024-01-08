@@ -3,13 +3,13 @@ import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBXYWZzVmpSFKDyNvfcZ-V91I_poXlHJA4",
-  authDomain: "zeevx-90c48.firebaseapp.com",
-  projectId: "zeevx-90c48",
-  storageBucket: "zeevx-90c48.appspot.com",
-  messagingSenderId: "714618924637",
-  appId: "1:714618924637:web:a9a4deff16f123ccf2a7b4",
-  measurementId: "G-HNZRHSLPTX"
+  apiKey: "AIzaSyAbqT36SYzz1JqKRy-ERma5GMBuUN3OGtY",
+  authDomain: "training-263022.firebaseapp.com",
+  projectId: "training-263022",
+  storageBucket: "training-263022.appspot.com",
+  messagingSenderId: "686365316167",
+  appId: "1:686365316167:web:4396a46f6d8ed957864d62",
+  measurementId: "G-H80MNH4ZT4"
 };
 
 const App = initializeApp(firebaseConfig);
