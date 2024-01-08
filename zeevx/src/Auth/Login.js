@@ -123,7 +123,7 @@ const handleGoogleLogin = async () => {
     console.log(idToken);
 
     // Send the ID token to your backend
-    const response = await fetch('http://localhost:8001/google-login', {
+    const response = await fetch('http://localhost:8001/auth/google-login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

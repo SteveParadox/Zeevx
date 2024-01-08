@@ -22,6 +22,7 @@ admin.initializeApp({
 });
 
 router.use(async (req, res, next) => {
+  
   try {
     const idToken = req.headers.authorization.split('Bearer ')[1];
     const decodedToken = await admin.auth().verifyIdToken(idToken);
