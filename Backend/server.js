@@ -8,10 +8,10 @@ import CardRouter from './Routes/Cards.js';
 import UploadRouter from './Routes/dataUpload.js';
 import User from './DB/User.js';
 
-import passport from 'passport';
-import cookieSession from "cookie-session";
+// import passport from 'passport';
+// import cookieSession from "cookie-session";
 
-import passportSetup from './Auth/passport.js'
+// import passportSetup from './Auth/passport.js'
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -26,16 +26,17 @@ const uri = process.env.DB_URI;
 // Middlewares
 app.use(express.json());
 app.use(cors(corsOptions));
-app.use(
+
+/* app.use(
   cookieSession({
     name: "session",
     keys: ["zeevx"],
     maxAge: 24 * 60 * 60 * 100,
   })
 );
-
 app.use(passport.initialize());
 app.use(passport.session());
+*/
 
 
 // app.use('/api', authMiddleware);

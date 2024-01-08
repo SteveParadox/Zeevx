@@ -4,7 +4,7 @@ import User from '../DB/User.js';
 import httpStatus from 'http-status';
 import ApiError from '../Utils/ApiError.js';
 import helper from '../Utils/helpers.js';
-import passport from 'passport';
+// import passport from 'passport';
 import authMiddleware from '../Auth/authMiddleware.js';
 
 const { acceptableGender, acceptableCountries, comparePassword } = helper;
@@ -12,7 +12,7 @@ const { acceptableGender, acceptableCountries, comparePassword } = helper;
 let authController = {};
 
 
-router.get("/login/success", (req,res) => {
+/* router.get("/login/success", (req,res) => {
   if(req.user){
     res.status(200).json({
       error: false,
@@ -40,6 +40,7 @@ router.get('/google/callback', passport.authenticate("google", {
 );
 
 router.get("/google", passport.authenticate("google", ["profile", "email"]));
+*/
 
 router.use('/google-login', authMiddleware)
 
