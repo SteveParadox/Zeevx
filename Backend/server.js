@@ -20,7 +20,7 @@ dotenv.config();
 // App Config
 const app = express();
 const port = process.env.PORT || 8001
-const uri = 'mongodb+srv://fordstphn:JOvRV8fE35skPjEp@cluster0.ronso6r.mongodb.net/?retryWrites=true&w=majority';
+const uri = process.env.DB_URI;
 
 
 // Middlewares

@@ -1,11 +1,12 @@
 import express from "express";
 import admin from "firebase-admin";
 
-const router = express.Router();
 import dotenv from 'dotenv';
 import session from 'express-session';
 
 dotenv.config();
+
+const router = express.Router();
 
 
 router.use(session({
