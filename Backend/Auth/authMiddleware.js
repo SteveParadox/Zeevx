@@ -25,7 +25,6 @@ router.use(async (req, res, next) => {
 
   try {
     const idToken = req.headers.authorization.split('Bearer ')[1];
-    console.log(idToken);
     const decodedToken = await admin.auth().verifyIdToken(idToken);
     req.user = decodedToken; 
     req.session.user = {
@@ -33,7 +32,8 @@ router.use(async (req, res, next) => {
       displayName: decodedToken.displayName,
       email: decodedToken.email,
     };
-    next();
+    res.json({ success: true, message: 'Verification successful', user: req.session.user });
+
   } catch (error) {
     console.error('Error verifying ID token:', error);
 
