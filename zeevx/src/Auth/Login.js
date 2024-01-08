@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect  } from 'react';
 import { FirebaseAuth, provider } from './Firebase.js';
 import MicrosoftLogin from './MicrosoftLogin';
 import { TextField, Button, Grid, Paper, Typography } from '@mui/material';
-import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { signInWithPopup } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 
 
@@ -41,7 +41,6 @@ function Copyright(props) {
   );
 }
 
-const provider = new GoogleAuthProvider();
 const defaultTheme = createTheme();
 
 
