@@ -136,6 +136,10 @@ const handleGoogleLogin = async () => {
     });
 
     const data = await response.json();
+
+    if (data.success) {
+      setAuth(data.user);
+
     console.log('Backend response:', data);
 
     navigate(from, { replace: true });
