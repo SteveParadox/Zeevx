@@ -8,6 +8,7 @@ dotenv.config();
 
 const router = express.Router();
 
+import serviceAccount from '../Keys/serviceAccountKey.json' assert { type: "json" };
 
 router.use(session({
   secret: process.env.SECRET_KEY, 
@@ -15,7 +16,6 @@ router.use(session({
   saveUninitialized: true,
 }));
 
-import serviceAccount from '../Keys/serviceAccountKey.json';
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
