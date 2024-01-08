@@ -139,6 +139,9 @@ const handleGoogleLogin = async () => {
 
     if (data.success) {
       setAuth(data.user);
+    }else {
+      console.error('Login failed:', data.error);
+    }
 
     console.log('Backend response:', data);
 
