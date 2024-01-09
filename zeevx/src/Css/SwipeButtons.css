@@ -12,10 +12,11 @@
 }
 
 .swipeButtons_repeat {
-    padding: 3vh !important;
+    padding: 3vw !important;
     color: #f5b74b !important;
     height: 10px;
-    width: 5rem;
+    width: 10px;
+
 }
 
 .swipeButtons__left {
