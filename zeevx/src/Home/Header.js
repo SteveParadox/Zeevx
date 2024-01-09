@@ -17,16 +17,16 @@ function Header() {
         <>
           <Link to="/profile">
             <IconButton>
-              <Person4Icon fontSize="large" className="header__icon" />
+              <Person4Icon fontSize="medium" className="header__icon" />
             </IconButton>
           </Link>
           <Link to="/upload">
             <IconButton>
-              <AcUnitIcon fontSize="large" className="header__icon" />
+              <AcUnitIcon fontSize="medium" className="header__icon" />
             </IconButton>
           </Link>
           <IconButton >
-            <ForumIcon fontSize="large" className="header__icon" />
+            <ForumIcon fontSize="medium" className="header__icon" />
           </IconButton>
         </>
     </div>

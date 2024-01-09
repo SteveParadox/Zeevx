@@ -3,7 +3,7 @@ import useAuth from "../Hooks/useAuth";
 import { updateProfile } from 'firebase/auth'; 
 
 const Profile = () => {
-  const {user} = useAuth();
+  const {auth} = useAuth();
   const [displayName, setDisplayName] = useState(user?.displayName || '');
   const [photoURL, setPhotoURL] = useState(user?.photoURL || '');
 
@@ -17,7 +17,7 @@ const Profile = () => {
     }
   };
 
-  if (!user) {
+  if (!auth) {
     return <div>Please log in to view your profile.</div>;
   }
 
