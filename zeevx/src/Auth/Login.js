@@ -91,7 +91,7 @@ const Login = () => {
             //console.log(JSON.stringify(response));
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
-            setAuth({ user, pwd, roles, accessToken });
+            // setAuth({ user, pwd, roles, accessToken });
             setUser('');
             setPwd('');
             navigate(from, { replace: true });
@@ -120,7 +120,6 @@ const handleGoogleLogin = async () => {
 
     // Get the user's ID token
     const idToken = await user.getIdToken();
-    console.log(idToken);
 
     // Send the ID token to your backend
     const response = await fetch('http://localhost:8001/auth/google-login', {
