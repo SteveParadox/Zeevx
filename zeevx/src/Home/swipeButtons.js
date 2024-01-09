@@ -15,10 +15,7 @@ function swipeButtons() {
                         <CloseIcon fontSize="medium" />
 
         </IconButton>
-              <IconButton className="swipeButtons__repeat">
-                        <FastRewindIcon fontSize="medium" />
 
-        </IconButton>
         <IconButton className="swipeButtons__star">
                         <StarRateIcon fontSize="medium"  />
 
@@ -27,7 +24,10 @@ function swipeButtons() {
                         <FavoriteIcon fontSize="medium"  />
 
         </IconButton>
+          <IconButton className="swipeButtons__repeat">
+                        <FastRewindIcon fontSize="medium" />
 
+        </IconButton>
             </div>
   );
 }
