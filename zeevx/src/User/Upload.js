@@ -142,7 +142,9 @@ function Upload() {
         </Popover>
       </div>
 
-      
+      <ThemeProvider theme={defaultTheme}>
+
+    </ThemeProvider>
     </>
   );
 };
