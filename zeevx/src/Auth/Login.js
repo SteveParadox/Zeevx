@@ -137,7 +137,6 @@ const handleGoogleLogin = async () => {
     const data = await response.json();
 
     if (data.success === true) {
-      console.log('Setting auth state:', data.user);
       setAuth(data.user);
       console.log(auth);
     }else {
