@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Css/SwipeButtons.css';
-import ReplayIcon from '@mui/icons-material/Replay';
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import CloseIcon from '@mui/icons-material/Close';
 import StarRateIcon from '@mui/icons-material/StarRate';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -24,7 +24,7 @@ function swipeButtons() {
 
         </IconButton>
       <IconButton className="swipeButtons__repeat">
-                        <ReplayIcon fontSize="medium" />
+                        <RestartAltIcon fontSize="medium" />
 
         </IconButton>
             </div>
