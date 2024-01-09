@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import TinderCard from 'react-tinder-card';
 import '../Css/Cards.css';
 import axios from '../Utils/axios';
+import InfoIcon from '@mui/icons-material/Info';
 
 function Cards() {
   const [people, setPeople] = useState([]);
@@ -38,7 +39,10 @@ function Cards() {
             onCardLeftScreen={() => outOfFrame(person.name)}
           >
             <div style={{ backgroundImage: `url(${person.imgUrl})` }} className="card">
-              <h3>{person.name}</h3>
+              <h3>{person.name}</h3> 
+              <IconButton>
+              <InfoIcon fontSize="medium" className="header__icon" />
+            </IconButton>
             </div>
           </TinderCard>
         ))}
