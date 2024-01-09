@@ -4,12 +4,12 @@ import { updateProfile } from 'firebase/auth';
 
 const Profile = () => {
   const {auth} = useAuth();
-  const [displayName, setDisplayName] = useState(user?.displayName || '');
-  const [photoURL, setPhotoURL] = useState(user?.photoURL || '');
+  const [displayName, setDisplayName] = useState(auth?.displayName || '');
+  const [photoURL, setPhotoURL] = useState(auth?.photoURL || '');
 
   const handleUpdateProfile = async () => {
     try {
-      await updateProfile(user, { displayName, photoURL });
+      await updateProfile(auth, { displayName, photoURL });
       console.log('Profile updated successfully');
       // You can add additional logic or feedback messages here
     } catch (error) {
