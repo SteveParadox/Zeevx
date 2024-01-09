@@ -20,17 +20,18 @@ function Header() {
             <IconButton>
               <HomeIcon fontSize="medium" className="header__icon" />
             </IconButton>
+          </Link> 
+           <Link to="/upload">
+            <IconButton>
+              <AcUnitIcon fontSize="medium" className="header__icon" />
+            </IconButton>
           </Link>
           <Link to="/profile">
             <IconButton>
               <Person4Icon fontSize="medium" className="header__icon" />
             </IconButton>
           </Link>
-          <Link to="/upload">
-            <IconButton>
-              <AcUnitIcon fontSize="medium" className="header__icon" />
-            </IconButton>
-          </Link>
+        
           <IconButton >
             <ForumIcon fontSize="medium" className="header__icon" />
           </IconButton>
