@@ -4,17 +4,13 @@ import ReplayIcon from '@mui/icons-material/Replay';
 import CloseIcon from '@mui/icons-material/Close';
 import StarRateIcon from '@mui/icons-material/StarRate';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import FlashOnIcon from '@mui/icons-material/FlashOn';
 import IconButton from "@mui/material/IconButton";
 
 
 function swipeButtons() {
   return (
     <div className="swipeButtons">
-         <IconButton className="swipeButtons__repeat">
-                        <ReplayIcon fontSize="medium" />
-
-        </IconButton>
+       
         <IconButton className="swipeButtons__left">
                         <CloseIcon fontSize="medium" />
 
@@ -27,11 +23,10 @@ function swipeButtons() {
                         <FavoriteIcon fontSize="medium"  />
 
         </IconButton>
-        <IconButton className="swipeButtons__lightning">
-                        <FlashOnIcon fontSize="medium" />
+      <IconButton className="swipeButtons__repeat">
+                        <ReplayIcon fontSize="medium" />
 
         </IconButton>
-
             </div>
   );
 }

@@ -11,13 +11,6 @@
     box-shadow: 0px 10px 53px 0px rgba(0, 0, 0, 0.3) !important;
 }
 
-.swipeButtons_repeat {
-    padding: 3vw !important;
-    color: #f5b74b !important;
-    height: 10px;
-    width: 10px;
-
-}
 
 .swipeButtons__left {
     padding: 3vw !important;
@@ -37,7 +30,7 @@
     height: 10px;
     width: 10px;
 }
-.swipeButtons__lightning {
+.swipeButtons_repeat {
     padding: 3vw !important;
     color: #ff00ff !important;
     height: 10px;
