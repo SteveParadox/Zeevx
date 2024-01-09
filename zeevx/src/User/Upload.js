@@ -143,6 +143,7 @@ function Upload() {
       </div>
 
       <ThemeProvider theme={defaultTheme}>
+        <CssBaseline />
 
        
       {/* Footer */}
