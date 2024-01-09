@@ -12,7 +12,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import CssBaseline from '@mui/material/CssBaseline';
+// import CssBaseline from '@mui/material/CssBaseline';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -143,9 +143,48 @@ function Upload() {
       </div>
 
       <ThemeProvider theme={defaultTheme}>
-        <CssBaseline />
 
-       
+        <main>
+          {/* Hero unit */}
+  
+          <Container sx={{ py: 8 }} maxWidth="md">
+            {/* End hero unit */}
+            
+            <Grid container spacing={4}>
+              {images.map((item) => (
+                <Grid item key={item.id} xs={12} sm={6} md={4}>
+                  <Card
+                    sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                  >
+                    <CardMedia
+                      component="div"
+                      sx={{
+                        // 16:9
+                        pt: '56.25%',
+                      }}
+                      image={item.imageUrl} // Replace with your actual data structure
+                    />
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        {item.title} {/* Replace with your actual data structure */}
+                      </Typography>
+                      <Typography>
+                        {item.description} {/* Replace with your actual data structure */}
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button size="small">View</Button>
+                      <Button size="small">Edit</Button>
+                      <Button variant="outlined" color="error" size="small">
+                        Delete
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          </Container>
+        </main>
       {/* Footer */}
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
         <Typography variant="h6" align="center" gutterBottom>
