@@ -54,7 +54,7 @@ const Login = () => {
       );
     };
  
-    const { auth } = useAuth();
+    const { setAuth } = useAuth();
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -137,7 +137,7 @@ const handleGoogleLogin = async () => {
     const data = await response.json();
 
     if (data.success === true) {
-      auth(data.user);
+      setAuth(data.user);
     }else {
       console.error('Login failed:', data.error);
     }
