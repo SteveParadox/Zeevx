@@ -6,8 +6,17 @@ import axios from '../Utils/axios';
 
 function Cards() {
   const [people, setPeople] = useState([]);
-//  const navigate = useNavigate();
-  
+
+  useEffect(() => {
+    async function fetchData() {
+      const req = await axios.get('/cards');
+
+      setPeople(req.data);
+    }
+
+    fetchData();
+    }, [])
+
 
   const swiped = (direction, nameToDelete) => {
     console.log('removing ' + nameToDelete);
