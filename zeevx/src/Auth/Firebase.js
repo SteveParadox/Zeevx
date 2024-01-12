@@ -1,7 +1,7 @@
-import { initializeApp } from 'firebase/app';
+import {firebase, initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getAnalytics } from "firebase/analytics";
-import { storage } from 'firebase/storage';
+import 'firebase/storage';
 
 
 const firebaseConfig = {
@@ -18,6 +18,6 @@ const App = initializeApp(firebaseConfig);
 const analytics = getAnalytics(App);
 const FirebaseAuth = getAuth(App);
 const provider = new GoogleAuthProvider();
-// const storage = firebase.storage();
+const storage = firebase.storage();
 
 export { FirebaseAuth, provider, storage };
