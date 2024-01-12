@@ -95,9 +95,9 @@ function Upload() {
 
       try {
         const response = await axios.post('/upload', {
-          title: 'YourTitle', // Replace with the actual title
-          description: 'YourDescription', // Replace with the actual description
-          imageUrl: downloadURL, // Pass the download URL to your backend
+          name: 'YourTitle', // Replace with the actual title
+         // description: 'YourDescription', // Replace with the actual description
+          imgUrl: downloadURL, // Pass the download URL to your backend
         });
         console.log('Backend response:', response.data);
       } catch (error) {
