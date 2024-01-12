@@ -75,7 +75,7 @@ function Upload() {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get(`/user/${userId}/images`);
+        const response = await axios.get(`/user/${user.uid}/images`);
         setImages(response.data);
       } catch (error) {
         console.error('Error fetching user images:', error);
@@ -87,7 +87,8 @@ function Upload() {
 
   const handleUpload = () => {
     if (selectedFile) {
-      const uploadTask = storageRef.child(`images/${selectedFile.name}`).put(selectedFile);
+      const fileRef = ref(storageRef, `images/${selectedFile.name}`);
+      const uploadTask = uploadBytes(fileRef, selectedFile);
   
       uploadTask.on(
         'state_changed',
