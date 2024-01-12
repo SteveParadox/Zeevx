@@ -20,40 +20,20 @@ router.get('/user/:userId/images', async (req, res) => {
     }
   });
 
-  router.post('/upload', upload.single('image'), async (req, res) => {
+  router.post('/upload', async (req, res) => {
     try {
-      const { title, description } = req.body;
+      const { name, imageUrl } = req.body;
       const userId = req.user._id;
   
-      // Create a reference to the Firebase Storage bucket
-      const storageRef = storage.bucket();
-  
-      // Upload the file to Firebase Storage
-      const fileUpload = storageRef.file(`images/${req.file.originalname}`);
-      const stream = fileUpload.createWriteStream();
-      stream.end(req.file.buffer);
-  
-      // Wait for the upload to complete
-      await new Promise((resolve, reject) => {
-        stream.on('finish', resolve);
-        stream.on('error', reject);
-      });
-  
-      // Construct the image URL from the Firebase Storage bucket URL
-      const imageUrl = `https://storage.googleapis.com/${storageRef.name}/${fileUpload.name}`;
-  
-      // Create a new Image document in your MongoDB
       const image = new Image({
-        title,
-        description,
-        imageUrl,
+        name,
+        imgUrl: imageUrl, 
         user: userId,
       });
   
-      // Save the image document to the database
       await image.save();
   
-      res.json({ message: 'Image uploaded successfully' });
+      res.json({ message: 'Image details saved to the database successfully' });
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Internal Server Error' });
