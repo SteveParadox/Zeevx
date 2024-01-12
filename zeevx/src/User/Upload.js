@@ -23,7 +23,7 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 
 import { storage } from '../Auth/Firebase';
-import {ref} from "firebase/storage"
+import {ref, uploadBytes } from "firebase/storage"
 
 
 function Copyright() {
@@ -75,7 +75,7 @@ function Upload() {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get(`/user/${user.uid}/images`);
+        const response = await axios.get(`/user/${userId}/images`);
         setImages(response.data);
       } catch (error) {
         console.error('Error fetching user images:', error);
