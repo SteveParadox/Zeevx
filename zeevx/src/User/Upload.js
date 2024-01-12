@@ -88,41 +88,28 @@ function Upload() {
   const handleUpload = () => {
     if (selectedFile) {
       const fileRef = ref(storageRef, `images/${selectedFile.name}`);
-      const uploadTask = uploadBytes(fileRef, selectedFile);
-  
-      uploadTask.on(
-        'state_changed',
-        (snapshot) => {
-          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log(`Upload is ${progress}% done`);
-        },
-        (error) => {
-          console.error('Error uploading file:', error);
-          // Handle the error, e.g., show an error message to the user
-        },
-        async () => {
-          console.log('File uploaded successfully!');
-          // Make an HTTP POST request to your backend after successful upload
-          try {
-            const response = await axios.post('/upload', {
-              title: 'YourTitle', // Replace with the actual title
-              description: 'YourDescription', // Replace with the actual description
-            });
-            console.log('Backend response:', response.data);
-          } catch (error) {
-            console.error('Error connecting to backend:', error);
-            // Handle the error, e.g., show an error message to the user
-          }
-          
-          // Refresh the list of images after successful upload
-          // await fetchData();
-          // You might also want to reset the selected file state if needed
-          setSelectedFile(null);
-        }
-      );
+      const snapshot = await uploadBytes(fileRef, selectedFile);
+      const downloadURL = await getDownloadURL(snapshot.ref);
+
+      console.log('File uploaded successfully!', downloadURL);
+
+      try {
+        const response = await axios.post('/upload', {
+          title: 'YourTitle', // Replace with the actual title
+          description: 'YourDescription', // Replace with the actual description
+          imageUrl: downloadURL, // Pass the download URL to your backend
+        });
+        console.log('Backend response:', response.data);
+      } catch (error) {
+        console.error('Error connecting to backend:', error);
+      }
+
+      // Refresh the list of images after successful upload
+      await fetchData();
+      // Reset the selected file state
+      setSelectedFile(null);
     } else {
       console.warn('No file selected for upload');
-      // You might want to show a warning message to the user
     }
   };
   
