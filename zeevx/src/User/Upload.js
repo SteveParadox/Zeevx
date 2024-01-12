@@ -64,6 +64,14 @@ function Upload() {
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
+ 
+
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setSelectedFile(file);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -77,16 +85,10 @@ function Upload() {
     fetchData();
   }, [userId]); 
 
-
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    setSelectedFile(file);
-  };
-
   const handleUpload = () => {
     if (selectedFile) {
       const uploadTask = storageRef.child(`images/${selectedFile.name}`).put(selectedFile);
-
+  
       uploadTask.on(
         'state_changed',
         (snapshot) => {
@@ -95,17 +97,34 @@ function Upload() {
         },
         (error) => {
           console.error('Error uploading file:', error);
+          // Handle the error, e.g., show an error message to the user
         },
-        () => {
+        async () => {
           console.log('File uploaded successfully!');
-          // Add logic to update state or perform additional actions after successful upload
+          // Make an HTTP POST request to your backend after successful upload
+          try {
+            const response = await axios.post('/upload', {
+              title: 'YourTitle', // Replace with the actual title
+              description: 'YourDescription', // Replace with the actual description
+            });
+            console.log('Backend response:', response.data);
+          } catch (error) {
+            console.error('Error connecting to backend:', error);
+            // Handle the error, e.g., show an error message to the user
+          }
+          
+          // Refresh the list of images after successful upload
+          await fetchData();
+          // You might also want to reset the selected file state if needed
+          setSelectedFile(null);
         }
       );
     } else {
       console.warn('No file selected for upload');
+      // You might want to show a warning message to the user
     }
   };
-
+  
 
   const handleButtonClick = (event) => {
     setAnchorEl(event.currentTarget);
