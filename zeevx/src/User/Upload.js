@@ -23,7 +23,7 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 
 import { storage } from '../Auth/Firebase';
-import {ref, uploadBytes } from "firebase/storage"
+import {ref, uploadBytes, getDownloadURL   } from "firebase/storage"
 
 
 function Copyright() {
