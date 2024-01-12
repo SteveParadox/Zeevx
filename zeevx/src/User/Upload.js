@@ -22,7 +22,7 @@ import { styled } from '@mui/material/styles';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 
-import { storage } from '../Auth/firebase';
+import { storage } from '../Auth/Firebase';
 
 
 function Copyright() {
@@ -72,7 +72,6 @@ function Upload() {
     setSelectedFile(file);
   };
 
-  useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`/user/${userId}/images`);
@@ -81,7 +80,7 @@ function Upload() {
         console.error('Error fetching user images:', error);
       }
     };
-
+  useEffect(() => {
     fetchData();
   }, [userId]); 
 
@@ -114,7 +113,7 @@ function Upload() {
           }
           
           // Refresh the list of images after successful upload
-          await fetchData();
+          // await fetchData();
           // You might also want to reset the selected file state if needed
           setSelectedFile(null);
         }
