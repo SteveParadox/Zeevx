@@ -23,6 +23,7 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 
 import { storage } from '../Auth/Firebase';
+import {ref} from "firebase/storage"
 
 
 function Copyright() {
@@ -38,7 +39,7 @@ function Copyright() {
   );
 }
 
-const storageRef = storage.ref();
+const storageRef = ref(storage, `/files`)
 
 const defaultTheme = createTheme();
 const VisuallyHiddenInput = styled('input')({
