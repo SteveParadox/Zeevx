@@ -20,15 +20,15 @@ router.get('/user/:userId/images', async (req, res) => {
     }
   });
 
-  router.post('/upload', async (req, res) => {
+router.post('/upload', async (req, res) => {
     try {
       const { name, imageUrl } = req.body;
-      const userId = req.user._id;
+      // const userId = req.user._id;
   
       const image = new Image({
         name,
         imgUrl: imageUrl, 
-        user: userId,
+        // user: userId,
       });
   
       await image.save();
