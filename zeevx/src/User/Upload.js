@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 import "../Css/Upload.css";
-// import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import axios from '../Utils/axios';
 
@@ -13,7 +12,6 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-// import CssBaseline from '@mui/material/CssBaseline';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -24,6 +22,7 @@ import { styled } from '@mui/material/styles';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 
+import { storage } from '../Auth/firebase';
 
 
 function Copyright() {
@@ -39,6 +38,7 @@ function Copyright() {
   );
 }
 
+const storageRef = storage.ref();
 
 const defaultTheme = createTheme();
 const VisuallyHiddenInput = styled('input')({
@@ -58,7 +58,6 @@ function Upload() {
   const [images, setImages] = useState([]);
 
 
-  // const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState(null);
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -85,13 +84,25 @@ function Upload() {
   };
 
   const handleUpload = () => {
-    // Implement your upload logic here
-    // You can use the 'selectedFile' state to perform further actions
     if (selectedFile) {
-      console.log("Uploading file:", selectedFile);
-      // Add your logic to upload the file, e.g., to a server or cloud storage
+      const uploadTask = storageRef.child(`images/${selectedFile.name}`).put(selectedFile);
+
+      uploadTask.on(
+        'state_changed',
+        (snapshot) => {
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log(`Upload is ${progress}% done`);
+        },
+        (error) => {
+          console.error('Error uploading file:', error);
+        },
+        () => {
+          console.log('File uploaded successfully!');
+          // Add logic to update state or perform additional actions after successful upload
+        }
+      );
     } else {
-      console.warn("No file selected for upload");
+      console.warn('No file selected for upload');
     }
   };
 
@@ -162,12 +173,10 @@ function Upload() {
                 color="text.primary"
                 gutterBottom
               >
-                Album layout
+                Album 
               </Typography>
               <Typography variant="h5" align="center" color="text.secondary" paragraph>
-                Something short and leading about the collection below—its contents,
-                the creator, etc. Make it short and sweet, but not too short so folks
-                don&apos;t simply skip over it entirely.
+               
               </Typography>
               <Fab color="secondary" aria-label="add" onClick={handleButtonClick}>
                 <AddIcon />
