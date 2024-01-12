@@ -85,7 +85,7 @@ function Upload() {
     fetchData();
   }, [userId]); 
 
-  const handleUpload = () => {
+  const handleUpload = async () => {
     if (selectedFile) {
       const fileRef = ref(storageRef, `images/${selectedFile.name}`);
       const snapshot = await uploadBytes(fileRef, selectedFile);
