@@ -27,7 +27,7 @@ function Header() {
         <>
         <Link to="/profile">
             <IconButton>
-            <img src={auth.picture} alt="Profile" className="header__icon" />
+            <img src={auth.picture} alt="Profile" className="header__profile-img " />
             </IconButton>
           </Link>
           <Link to="/home">

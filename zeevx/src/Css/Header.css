@@ -19,3 +19,12 @@
     padding: 20px;
     color: lavender;
 }
+
+.header__profile-img {
+    height: 30px;
+    width: 30px; 
+    object-fit: cover; 
+    border-radius: 50%; 
+    padding: 20px;
+    background-color: lavender; 
+  }
