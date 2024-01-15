@@ -9,11 +9,19 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import ForumIcon from '@mui/icons-material/Send';
 import HomeIcon from '@mui/icons-material/Home';
 
+import { Link, Navigate, useLocation } from 'react-router-dom';
+
+
 function Header() {
   // const { user, handleLogout } = AuthProvider();
 // onClick={handleLogout}
   const { auth } = useAuth();
+  const location = useLocation();
 
+
+  if (!auth) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
 
   return (
     <div className="header">
