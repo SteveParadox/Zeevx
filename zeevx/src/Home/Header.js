@@ -17,14 +17,13 @@ function Header() {
   const { auth } = useAuth();
   const location = useLocation();
 
-
+  console.log(auth);
   if (!auth) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
   return (
     <div className="header">
-      {auth ? (
         <>
         <Link to="/profile">
             <IconButton>
@@ -46,12 +45,7 @@ function Header() {
             <ForumIcon fontSize="medium" className="header__icon" />
           </IconButton>
         </>
-      ) : (
-
-        <Link to="/login">
-          <button className="header__loginButton">Login</button>
-        </Link>
-      )}
+     
     </div>
   );
 }
