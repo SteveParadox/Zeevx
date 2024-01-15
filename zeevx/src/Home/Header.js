@@ -26,6 +26,11 @@ function Header() {
     <div className="header">
       {auth ? (
         <>
+        <Link to="/profile">
+            <IconButton>
+            <img src={auth.picture} alt="Profile" className="header__icon" />
+            </IconButton>
+          </Link>
           <Link to="/home">
             <IconButton>
               <HomeIcon fontSize="medium" className="header__icon" />
@@ -36,11 +41,7 @@ function Header() {
               <AcUnitIcon fontSize="medium" className="header__icon" />
             </IconButton>
           </Link>
-          <Link to="/profile">
-            <IconButton>
-              <Person4Icon fontSize="medium" className="header__icon" />
-            </IconButton>
-          </Link>
+          
           <IconButton >
             <ForumIcon fontSize="medium" className="header__icon" />
           </IconButton>
