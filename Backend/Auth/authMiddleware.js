@@ -34,6 +34,8 @@ router.use(async (req, res, next) => {
       uid: decodedToken.uid,
       displayName: decodedToken.name,
       email: decodedToken.email,
+      picture: decodedToken.picture,
+
     };
 
     const existingUser = await User.findOne({ uid: decodedToken.uid });
