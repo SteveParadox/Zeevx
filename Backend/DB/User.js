@@ -22,6 +22,14 @@ const userSchema = new mongoose.Schema({
       type: String,
       required: false,
     },
+    picture: {
+      type: String,
+      required: false,
+    },
+    emailVerified: {
+      type: Boolean,
+      default: false, 
+    },
     // Add more fields as needed
   });
 

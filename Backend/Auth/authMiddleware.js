@@ -32,7 +32,7 @@ router.use(async (req, res, next) => {
     req.user = decodedToken; 
     req.session.user = {
       uid: decodedToken.uid,
-      displayName: decodedToken.displayName,
+      displayName: decodedToken.name,
       email: decodedToken.email,
     };
 
@@ -40,8 +40,10 @@ router.use(async (req, res, next) => {
     if (!existingUser) {
       const newUser = new User({
         uid: decodedToken.uid,
-        displayName: decodedToken.displayName,
+        displayName: decodedToken.name,
         email: decodedToken.email,
+        picture: decodedToken.picture,
+        emailVerified: decodedToken.email_verified
       });
       await newUser.save();
     }
