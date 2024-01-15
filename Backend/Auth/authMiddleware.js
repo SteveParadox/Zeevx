@@ -3,6 +3,7 @@ import admin from "firebase-admin";
 
 import dotenv from 'dotenv';
 import session from 'express-session';
+import User from '../DB/User.js';
 
 dotenv.config();
 
@@ -32,6 +33,17 @@ router.use(async (req, res, next) => {
       displayName: decodedToken.displayName,
       email: decodedToken.email,
     };
+
+    const existingUser = await User.findOne({ uid: decodedToken.uid });
+    if (!existingUser) {
+      const newUser = new User({
+        uid: decodedToken.uid,
+        displayName: decodedToken.displayName,
+        email: decodedToken.email,
+      });
+      await newUser.save();
+    }
+
     res.json({ success: true, message: 'Verification successful', user: req.session.user });
 
   } catch (error) {
