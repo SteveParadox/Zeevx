@@ -79,6 +79,7 @@ function Upload() {
       try {
         const response = await axios.get(`/user/${auth.uid}/images`);
         setImages(response.data);
+        console.log(response.data);
       } catch (error) {
         console.error('Error fetching user images:', error);
       }
@@ -100,7 +101,7 @@ function Upload() {
           name: 'TiTLE', 
          // description: 'YourDescription', // Replace with the actual description
           imgUrl: downloadURL, // Pass the download URL to your backend
-          userId: `{auth.uid}`
+          userId: `${auth.uid}`
         });
         console.log('Backend response:', response.data);
       } catch (error) {
