@@ -46,7 +46,7 @@ const LandingPage = () => {
           <ul class="second-nav">
           {auth ? (
                     <li className="go-premium-cta">
-        <p>Welcome, {auth.displayName}!</p>
+        <a href="/home">Welcome, {auth.displayName}!</a>
         </li>
       ) : (
         <li className="go-premium-cta">
