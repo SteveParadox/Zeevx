@@ -21,6 +21,8 @@ router.get('/user/:userId/images', async (req, res) => {
   });
 
 router.post('/upload', async (req, res) => {
+    console.log(req.user);
+
     try {
       const { name, imgUrl } = req.body;
       const userId = req.user._id;
