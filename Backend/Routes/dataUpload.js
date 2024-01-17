@@ -28,7 +28,7 @@ router.post('/upload', async (req, res) => {
       const image = new Image({
         name: name,
         imgUrl: imgUrl, 
-        // user: userId,
+        user: userId,
       });
   
       await image.save();

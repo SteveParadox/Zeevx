@@ -24,6 +24,7 @@ import AddIcon from '@mui/icons-material/Add';
 
 import { storage } from '../Auth/Firebase';
 import {ref, uploadBytes, getDownloadURL   } from "firebase/storage"
+import useAuth from "../Hooks/useAuth";
 
 
 function Copyright() {
@@ -55,7 +56,8 @@ const VisuallyHiddenInput = styled('input')({
   });
 
 function Upload() {
-  const { userId } = useParams();
+
+  const { auth } = useAuth();
   const [images, setImages] = useState([]);
 
 
@@ -75,7 +77,7 @@ function Upload() {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get(`/user/${userId}/images`);
+        const response = await axios.get(`/user/${auth.uid}/images`);
         setImages(response.data);
       } catch (error) {
         console.error('Error fetching user images:', error);
@@ -95,9 +97,10 @@ function Upload() {
 
       try {
         const response = await axios.post('/upload', {
-          name: 'YourTitle', // Replace with the actual title
+          name: 'TiTLE', 
          // description: 'YourDescription', // Replace with the actual description
           imgUrl: downloadURL, // Pass the download URL to your backend
+          userId: `{auth.uid}`
         });
         console.log('Backend response:', response.data);
       } catch (error) {
