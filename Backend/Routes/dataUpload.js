@@ -24,8 +24,7 @@ router.post('/upload', async (req, res) => {
     console.log(req.user);
 
     try {
-      const { name, imgUrl } = req.body;
-      const userId = req.user._id;
+      const { name, imgUrl, userId } = req.body;
       console.log(userId);
   
       const image = new Image({
