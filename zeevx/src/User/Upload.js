@@ -85,7 +85,7 @@ function Upload() {
     };
   useEffect(() => {
     fetchData();
-  }, [userId]); 
+  }, [auth.uid]); 
 
   const handleUpload = async () => {
     if (selectedFile) {
