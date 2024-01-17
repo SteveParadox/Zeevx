@@ -21,16 +21,15 @@ router.get('/user/:userId/images', async (req, res) => {
   });
 
 router.post('/upload', async (req, res) => {
-    console.log(req.user);
 
     try {
       const { name, imgUrl, userId } = req.body;
-      console.log(userId);
+      const userObjectId = mongoose.Types.ObjectId(userId);
   
       const image = new Image({
         name: name,
         imgUrl: imgUrl, 
-        user: userId,
+        user: userObjectId,
       });
   
       await image.save();
