@@ -3,8 +3,12 @@ import React from 'react';
 import { Container, Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import "../Css/LandingPage.css";
+import useAuth from "../Hooks/useAuth";
+
 
 const LandingPage = () => {
+  const { auth } = useAuth();
+
   return (
     <div className="App">
     {/* <!--NAVIGATION BLOG START--> */}
@@ -40,9 +44,15 @@ const LandingPage = () => {
   
 
           <ul class="second-nav">
-            <li class="go-premium-cta">
-              <a href="/login">Login</a>
-            </li>
+          {auth ? (
+                    <li className="go-premium-cta">
+        <p>Welcome, {auth.displayName}!</p>
+        </li>
+      ) : (
+        <li className="go-premium-cta">
+          <a href="/login">Login</a>
+        </li>
+      )}
           </ul>
         </nav>
       </div>
