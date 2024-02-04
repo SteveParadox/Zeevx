@@ -13,9 +13,17 @@ const upload = multer({ storage });
 router.get('/user/:userId/images', async (req, res) => {
     try {
       const userId = req.params.userId;
-  
-      const images = await Image.find({ user: userId });
+      const user = await User.findOne({ uid: userId });
+      if (!user) {
+        return res.status(404).json({ error: 'User not found' });
+      }
+
+      const images = await Image.find({ user: user.id });
+      if (!images) {
+        return res.status(404).json({ error: 'No image found' });
+      }
       res.json(images);
+      
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Internal Server Error' });
