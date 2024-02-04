@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 
 const router = express.Router();
 
+import User from '../DB/User.js';
 import Image from '../DB/Upload.js';
 
 const storage = multer.memoryStorage();
@@ -26,17 +27,21 @@ router.post('/user/:userId/upload', async (req, res) => {
       const { name, imgUrl } = req.body;
       const userId = req.params.userId;
 
-      const userObjectId = new mongoose.Types.ObjectId(userId);
-      console.log(userObjectId)
-  
+      const user = await User.findById(userId);
+
+      if (!user) {
+        return res.status(404).json({ error: 'User not found' });
+      }
+
+
       const image = new Image({
         name: name,
         imgUrl: imgUrl, 
-        user: userObjectId,
+        user: user,
       });
-  
+
       await image.save();
-  
+
       res.json({ message: 'Image details saved to the database successfully' });
     } catch (error) {
       console.error(error);
