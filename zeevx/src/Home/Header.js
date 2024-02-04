@@ -7,6 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import ForumIcon from '@mui/icons-material/Send';
 import HomeIcon from '@mui/icons-material/Home';
+import VideoCallIcon from '@mui/icons-material/VideoCall';
 
 import { Link, Navigate, useLocation } from 'react-router-dom';
 
@@ -41,11 +42,11 @@ function Header() {
             </IconButton>
           </Link>
           
-          <IconButton >
-            <ForumIcon fontSize="medium" className="header__icon" />
-          </IconButton>
-        </>
-     
+          <Link to="/upload">
+            <IconButton>
+              <VideoCallIcon fontSize="medium" className="header__icon" />
+            </IconButton>
+          </Link>
     </div>
   );
 }
