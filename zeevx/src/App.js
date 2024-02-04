@@ -17,7 +17,7 @@ const App = () => {
 
   return (
       <div className="App">
-          {!isLoginPage && !isLandingPage && <Header />}
+          {!isLoginPage && !isLandingPage }
         
         <Routes>      
           <Route path="/" element={<LandingPage />} />
@@ -25,9 +25,11 @@ const App = () => {
 
             <Route element = {<RequiredAuth />}>
                 <Route path="/upload" element={<Upload />} />
+
                 <Route path="/test" element={<Test />} />
 
                 <Route path="/home" element={<>
+                <Header />
                   <Cards />
                   <SwipeButtons />
                   {/* Add more components or content as needed */}
