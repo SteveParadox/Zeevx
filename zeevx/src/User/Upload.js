@@ -97,11 +97,10 @@ function Upload() {
       console.log('File uploaded successfully!', downloadURL);
 
       try {
-        const response = await axios.post('/upload', {
+        const response = await axios.post(`/user/${auth.uid}/upload`, {
           name: 'TiTLE', 
          // description: 'YourDescription', // Replace with the actual description
           imgUrl: downloadURL, // Pass the download URL to your backend
-          userId: `${auth.uid}`
         });
         console.log('Backend response:', response.data);
       } catch (error) {
@@ -152,7 +151,7 @@ function Upload() {
                 <Button
                   component="label"
                   variant="contained"
-                  onChange={handleFileChange}
+                 // onChange={handleFileChange}
                   startIcon={<CloudUploadIcon />}
                   onClick={handleUpload}
                 >

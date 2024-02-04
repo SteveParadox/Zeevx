@@ -21,10 +21,9 @@ router.get('/user/:userId/images', async (req, res) => {
     }
   });
 
-router.post('/upload', async (req, res) => {
-
+router.post('/user/:userId/upload', async (req, res) => {
     try {
-      const { name, imgUrl, userId } = req.body;
+      const { name, imgUrl } = req.body;
       const userObjectId = mongoose.Types.ObjectId(userId);
   
       const image = new Image({
