@@ -47,6 +47,8 @@ function Header() {
               <VideoCallIcon fontSize="medium" className="header__icon" />
             </IconButton>
           </Link>
+        </>
+     
     </div>
   );
 }
