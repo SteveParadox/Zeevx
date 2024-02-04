@@ -208,11 +208,11 @@ function Upload() {
                         // 16:9
                         pt: '56.25%',
                       }}
-                      image={item.imageUrl} // Replace with your actual data structure
+                      image={item.imgUrl} 
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
                       <Typography gutterBottom variant="h5" component="h2">
-                        {item.title} {/* Replace with your actual data structure */}
+                        {item.name} {/* Replace with your actual data structure */}
                       </Typography>
                       <Typography>
                         {item.description} {/* Replace with your actual data structure */}
