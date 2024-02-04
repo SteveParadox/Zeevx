@@ -151,7 +151,7 @@ function Upload() {
                 <Button
                   component="label"
                   variant="contained"
-                 // onChange={handleFileChange}
+                  onChange={handleFileChange}
                   startIcon={<CloudUploadIcon />}
                   onClick={handleUpload}
                 >
