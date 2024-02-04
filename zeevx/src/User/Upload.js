@@ -203,12 +203,14 @@ function Upload() {
                     sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                   >
                     <CardMedia
-                      component="div"
+                      component="img"
                       sx={{
                         // 16:9
                         pt: '56.25%',
                       }}
-                      image={item.imgUrl} 
+                      src={item.imgUrl} 
+                      alt={item.name}
+
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
                       <Typography gutterBottom variant="h5" component="h2">
