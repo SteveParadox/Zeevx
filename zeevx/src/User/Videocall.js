@@ -19,23 +19,7 @@ const VideoCallComponent = () => {
     };
   }, []);
 
-
-  const handleUserPublished = (user, mediaType) => {
-    // Subscribe to the remote user's stream
-    agoraClient.current.subscribe(user, mediaType, (remoteStream) => {
-      // Save the remote stream in the state
-      setRemoteStreams((prevStreams) => [...prevStreams, remoteStream]);
-    });
-  };
-
-  const handleUserUnpublished = (user) => {
-    // Remove the remote user's stream from the state
-    setRemoteStreams((prevStreams) =>
-      prevStreams.filter((stream) => stream.getId() !== user.uid),
-    );
-  };
-
-
+  
   const toggleMute = () => {
     try {
       agoraClient.current[isMuted ? 'unmute' : 'muteAudio']();
