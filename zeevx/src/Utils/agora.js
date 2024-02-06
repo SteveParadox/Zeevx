@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import AgoraRTC from 'agora-rtc-sdk';
 
-const Agora = () => {
+function Agora() {
   const agoraClient = useRef(null);
   const [remoteStreams, setRemoteStreams] = useState([]);
 
