@@ -48,7 +48,7 @@ function Header() {
             </IconButton>
           </Link>
           
-          <Link to="/">
+          <Link to="/call">
             <IconButton>
               <VideoCallIcon fontSize="medium" className="header__icon" />
             </IconButton>

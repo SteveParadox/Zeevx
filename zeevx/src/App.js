@@ -11,6 +11,8 @@ import Upload from './User/Upload';
 
 import Test from './Home/test.js';
 import Profile from './User/Profile.js'
+import VideoCallComponent from './User/Videocall.js'
+
 import Error from './Home/Error.js'
 
 import RequiredAuth from './Auth/RequireAuth';
@@ -30,6 +32,7 @@ const App = () => {
             <Route element = {<RequiredAuth />}>
                 <Route path="/upload" element={<Upload />} />
                 <Route path="/explore" element={<Explore />} />
+                <Route path="/call" element={<VideoCallComponent/>} />
 
                 <Route path="/test" element={<Test />} />
 
