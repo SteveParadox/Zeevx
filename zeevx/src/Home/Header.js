@@ -8,6 +8,7 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import ForumIcon from '@mui/icons-material/Send';
 import HomeIcon from '@mui/icons-material/Home';
 import VideoCallIcon from '@mui/icons-material/VideoCall';
+import CategoryIcon from '@mui/icons-material/Category';
 
 import { Link, Navigate, useLocation } from 'react-router-dom';
 
@@ -41,8 +42,13 @@ function Header() {
               <AcUnitIcon fontSize="medium" className="header__icon" />
             </IconButton>
           </Link>
+          <Link to="/explore">
+            <IconButton>
+              <CategoryIcon fontSize="medium" className="header__icon" />
+            </IconButton>
+          </Link>
           
-          <Link to="/upload">
+          <Link to="/">
             <IconButton>
               <VideoCallIcon fontSize="medium" className="header__icon" />
             </IconButton>
