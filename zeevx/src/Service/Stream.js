@@ -48,5 +48,27 @@ export default function Stream(props) {
         if (tracks) await client.publish([tracks[0], tracks[1]]);
             setStart(true);
     };
+        if (ready && tracks){
+            try{
+                init(channelName)
+            }catch(error){
+                console.log(error )
+            }
+        }
     }, [channelName, client, ready, tracks]);
+
+        return (<Grid container direction="column" style={{height: "100%"}}>
+            <Grid item style={{ height: "5%"}}>
+                {ready && tracks && (
+                <Controls tracks={tracks} setStart={start} setInCall={setInCall}/>
+                )}
+            </Grid>
+            <Grid item style={{ height: "95%"}}>
+            {start && tracks && (
+                <Videos tracks={tracks} users={users} />
+                )}
+            </Grid>
+
+        </Grid>
+        );
 }
